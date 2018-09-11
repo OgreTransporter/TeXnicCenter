@@ -306,8 +306,27 @@ CDocumentNewDialog::CDocumentNewDialog(CWnd* pParent /*=NULL*/)
 
 	//Add template for empty project
 	std::unique_ptr<CTemplateItem> pItem(new CEmptyDocumentTemplateItem);
-	AddTemplateItem(CString((LPCTSTR) STE_EMPTYDOCUMENT_CATEGORY), 
-		std::move(pItem));
+	AddTemplateItem(CString((LPCTSTR) STE_EMPTYDOCUMENT_CATEGORY), std::move(pItem));
+
+	TCHAR szPath[_MAX_PATH];
+	::GetModuleFileName(AfxGetApp()->m_hInstance, szPath, _MAX_PATH);
+	CString csPath(szPath);
+	int nIndex = csPath.ReverseFind(_T('\\'));
+	if (nIndex > 0)
+		csPath = csPath.Left(nIndex);
+	else
+		csPath = _T(".");
+	csPath.Append(_T("\\Templates\\Documents\\*"));
+	CFileFind finder;
+	BOOL bWorking = finder.FindFile(static_cast<LPCTSTR>(csPath));
+	while (bWorking)
+	{
+		bWorking = finder.FindNextFile();
+		if (finder.GetFileName() == _T(".") || finder.GetFileName() == _T("..") || !finder.IsDirectory())
+			continue;
+		else
+			AddSearchDir((LPCTSTR)finder.GetFilePath());
+	}
 
 	m_nFileFormat = CConfiguration::GetInstance()->m_nStandardFileFormat;
 

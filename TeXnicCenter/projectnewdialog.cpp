@@ -348,9 +348,28 @@ CProjectNewDialog::CProjectNewDialog(CWnd* pParent /*=NULL*/)
 
 	// Add template for empty project
 	std::unique_ptr<CTemplateItem> pItem(new CEmptyProjectTemplateItem);
+	AddTemplateItem(CString((LPCTSTR)STE_EMPTYPROJECT_CATEGORY), std::move(pItem));
 
-	AddTemplateItem(CString((LPCTSTR)STE_EMPTYPROJECT_CATEGORY), 
-		std::move(pItem));
+	// Search project templates
+	TCHAR szPath[_MAX_PATH];
+	::GetModuleFileName(AfxGetApp()->m_hInstance, szPath, _MAX_PATH);
+	CString csPath(szPath);
+	int nIndex = csPath.ReverseFind(_T('\\'));
+	if (nIndex > 0)
+		csPath = csPath.Left(nIndex);
+	else
+		csPath = _T(".");
+	csPath.Append(_T("\\Templates\\Projects\\*"));
+	CFileFind finder;
+	BOOL bWorking = finder.FindFile(static_cast<LPCTSTR>(csPath));
+	while (bWorking)
+	{
+		bWorking = finder.FindNextFile();
+		if (finder.GetFileName() == _T(".") || finder.GetFileName() == _T("..") || !finder.IsDirectory())
+			continue;
+		else
+			AddSearchDir((LPCTSTR)finder.GetFilePath());
+	}
 
 	//Get Project base path
 	m_strProjectBasePath = AfxGetDefaultDirectory(true, true);
