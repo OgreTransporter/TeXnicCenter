@@ -33,7 +33,6 @@
 #include <utility>
 #include <vector>
 
-#include "ShellUtilXP.h"
 #include "resource.h"
 #include "FileTreeCtrl.h"
 #include "FontOccManager.h"

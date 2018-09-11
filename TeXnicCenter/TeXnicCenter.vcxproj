@@ -350,7 +350,6 @@
     <ClCompile Include="SearchToolBarEditButton.cpp" />
     <ClCompile Include="SearchToolBarEditCtrl.cpp" />
     <ClCompile Include="ShadowWindow.cpp" />
-    <ClCompile Include="ShellUtilXP.cpp" />
     <ClCompile Include="ShellView.cpp" />
     <ClCompile Include="SortListCtrl.cpp" />
     <ClCompile Include="SpellCheckDlg.cpp" />
@@ -520,7 +519,6 @@
     <ClInclude Include="ScintillaDocView.h" />
     <ClInclude Include="SearchToolBarEditButton.h" />
     <ClInclude Include="SearchToolBarEditCtrl.h" />
-    <ClInclude Include="ShellUtilXP.h" />
     <ClInclude Include="ShellView.h" />
     <ClInclude Include="SortListCtrl.h" />
     <ClInclude Include="SpellCheckDlg.h" />
@@ -731,7 +729,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemGroup>
-   <ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\3rdparty\Dictionaries.vcxproj">
       <Project>{8bcf7b96-863c-43be-9b8a-84b8aab304c7}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
