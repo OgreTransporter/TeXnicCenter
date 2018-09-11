@@ -114,6 +114,12 @@
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(Solutiondir)3rdparty\matlab2tikz\src" "$(OutDir)matlab2tikz" /S /I /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy matlab2tikz</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
@@ -150,6 +156,12 @@
       <TargetMachine>MachineX64</TargetMachine>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(Solutiondir)3rdparty\matlab2tikz\src" "$(OutDir)matlab2tikz" /S /I /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy matlab2tikz</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -186,6 +198,12 @@
       <TargetMachine>MachineX86</TargetMachine>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(Solutiondir)3rdparty\matlab2tikz\src" "$(OutDir)matlab2tikz" /S /I /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy matlab2tikz</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
@@ -221,6 +239,12 @@
       <TargetMachine>MachineX64</TargetMachine>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(Solutiondir)3rdparty\matlab2tikz\src" "$(OutDir)matlab2tikz" /S /I /Y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy matlab2tikz</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="aboutbox.cpp" />
@@ -291,6 +315,7 @@
     <ClCompile Include="LaTeXView.cpp" />
     <ClCompile Include="LaTeXViewBase.cpp" />
     <ClCompile Include="mainfrm.cpp" />
+    <ClCompile Include="Matlab.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MetaPostDocument.cpp" />
     <ClCompile Include="MetaPostView.cpp" />
@@ -453,6 +478,7 @@
     <ClInclude Include="LaTeXView.h" />
     <ClInclude Include="LaTeXViewBase.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="Matlab.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MetaPostDocument.h" />
     <ClInclude Include="MetaPostView.h" />
@@ -535,7 +561,6 @@
     <ClInclude Include="StyleFile.h" />
     <ClInclude Include="StyleFileContainer.h" />
     <ClInclude Include="TabPersistPosEdit.h" />
-    <ClInclude Include="targetver.h" />
     <ClInclude Include="TemplateDialog.h" />
     <ClInclude Include="TeXnicCenter.h" />
     <ClInclude Include="textfilesavedialog.h" />

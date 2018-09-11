@@ -38,6 +38,7 @@
 #include "global.h"
 #include "Configuration.h"
 #include "TeXnicCenter.h"
+#include "Matlab.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -185,6 +186,11 @@ CString CInsertGraphicDialog::GetProperties()
 	///////////////////////////////////////////////////////////////////
 	// statics
 	CString strResult(_T("\\includegraphics"));
+	if (m_strFile.Right(3) == _T("tex"))
+	{
+		strResult = _T("\r% \\usepackage{pgfplots}\r% \\pgfplotsset{ compat = newest }\r% \\pgfplotsset{ plot coordinates / math parser = false }\r% \\newlength\\figureheight\r% \\newlength\\figurewidth\r\\input");
+		m_bScale = false;
+	}
 
 	///////////////////////////////////////////////////////////////////
 	// is scaled?
@@ -302,7 +308,7 @@ void CInsertGraphicDialog::OnGraphicBrowse()
 	CFileDialogEx dlg(
 	    TRUE,NULL,m_strFile,
 	    OFN_HIDEREADONLY | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR,
-	    AfxLoadString(STE_GRAPHIC_FILES),this);
+	    AfxLoadString(CMatlab::HasMatlab() ? STE_GRAPHIC_FILES_EX : STE_GRAPHIC_FILES),this);
 
 	//Get default path
 	CString strInitialDir = AfxGetDefaultDirectory();
@@ -319,6 +325,51 @@ void CInsertGraphicDialog::OnGraphicBrowse()
 
 	AfxSetLastDirectory(CPathTool::GetDirectory(dlg.GetPathName()));
 	m_strFile = dlg.GetPathName();
+
+	if (m_strFile.Right(4).MakeLower() == _T(".fig"))
+	{
+		if (!CMatlab::HasMatlab()) return;
+		CMatlab mapp;
+		if (mapp)
+		{
+			CWaitCursor wait;
+			wait.Restore();
+			if (mapp.Open())
+			{
+				mapp.SetVisible(true);
+				char szPath[_MAX_PATH];
+				::GetModuleFileNameA(AfxGetApp()->m_hInstance, szPath, _MAX_PATH);
+				CStringA csPath(szPath);
+				int nIndex = csPath.ReverseFind('\\');
+				if (nIndex > 0)
+					csPath = csPath.Left(nIndex);
+				else
+					csPath = ".";
+				csPath.Append("\\matlab2tikz");
+				std::string cmd = "addpath('";
+				cmd.append(csPath.GetBuffer());
+				cmd.append("');");
+				mapp.EvalString(cmd.c_str());
+				csPath = CStringA(m_strFile.GetBuffer());
+				cmd = "openfig('";
+				cmd.append(csPath.GetBuffer());
+				cmd.append("');");
+				mapp.EvalString(cmd.c_str());
+				mapp.EvalString("cleanfigure;");
+				csPath = csPath.Left(csPath.GetLength() - 3) + "tex";
+				cmd = "matlab2tikz('";
+				cmd.append(csPath.GetBuffer());
+				cmd.append("');");
+				mapp.EvalString(cmd.c_str());
+				mapp.Close();
+				m_strFile = m_strFile.Left(m_strFile.GetLength() - 3) + _T("tex");
+			}
+			else
+				return;
+		}
+		else
+			return;
+	}
 
 	//Get path relative to project dir
 	CLaTeXProject* pLProject = theApp.GetProject();

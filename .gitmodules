@@ -7,3 +7,6 @@
 [submodule "3rdparty/Dictionaries"]
 	path = 3rdparty/Dictionaries
 	url = https://anongit.freedesktop.org/git/libreoffice/dictionaries.git
+[submodule "3rdparty/matlab2tikz"]
+	path = 3rdparty/matlab2tikz
+	url = https://github.com/matlab2tikz/matlab2tikz.git

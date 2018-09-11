@@ -488,6 +488,9 @@
     <ClCompile Include="ProfilePagePprocessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Matlab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aboutbox.h">
@@ -910,9 +913,6 @@
     <ClInclude Include="TabPersistPosEdit.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="TemplateDialog.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -998,6 +998,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ProfilePagePprocessor.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matlab.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
