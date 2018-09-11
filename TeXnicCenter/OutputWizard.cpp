@@ -1043,6 +1043,32 @@ void COutputWizard::SetupAcrobatDDE( CProfile &p )
 			DDEServerName = CString(_T("acroview")) + _T("A") + VersionNumberString;
 		}
 	}
+	else
+	{
+		DWORD verHandle = 0;
+		DWORD verSize = GetFileVersionInfoSize(lpStart, &verHandle);
+		if (verSize != NULL)
+		{
+			LPSTR verData = new char[verSize];
+			if (GetFileVersionInfo(lpStart, verHandle, verSize, verData))
+			{
+				UINT size = 0;
+				LPBYTE lpBuffer = NULL;
+				if (VerQueryValue(verData, _T("\\"), (VOID FAR* FAR*)&lpBuffer, &size))
+				{
+					if (size)
+					{
+						VS_FIXEDFILEINFO *verInfo = (VS_FIXEDFILEINFO *)lpBuffer;
+						if (verInfo->dwSignature == 0xfeef04bd)
+						{
+							DDEServerName.Format(_T("acroviewR%d"), (verInfo->dwFileVersionMS >> 16) & 0xffff);
+						}
+					}
+				}
+			}
+			delete[] verData;
+		}
+	}
 
 	cmd.SetExecutable(m_wndPagePdfViewer.m_strPath);
 	cmd.SetCommand(_T("[DocOpen(\"%bm.pdf\")][FileOpen(\"%bm.pdf\")]"));
