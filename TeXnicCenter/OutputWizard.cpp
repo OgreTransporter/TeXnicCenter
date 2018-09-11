@@ -39,7 +39,6 @@
 #include "resource.h"
 #include "OutputWizard.h"
 #include "FontOccManager.h"
-#include "RunTimeHelper.h"
 #include "RegistryStack.h"
 #include "TeXnicCenter.h"
 
@@ -87,10 +86,8 @@ namespace
 #ifdef UNICODE
 #pragma warning(push)
 #pragma warning(disable: 4428) // universal-character-name encountered in source
-		if (RunTimeHelper::IsVista()) {
-			const wchar_t* ch = L"\u21E8"; // Some nice arrow, only for Vista or higher
-			text.Replace(_T("=>"),ch);
-		}
+		const wchar_t* ch = L"\u21E8"; // Some nice arrow, only for Vista or higher
+		text.Replace(_T("=>"),ch);
 #pragma warning(pop)
 #endif // UNICODE
 		return text;
@@ -151,18 +148,8 @@ COutputWizard::COutputWizard(CProfileMap &profiles,CWnd* pParentWnd)
 	SetWizardMode();
 
 	m_psh.dwFlags &= ~PSH_HASHELP;
-
-	if (RunTimeHelper::IsVista())
-	{
-		m_psh.dwFlags &= ~PSH_WIZARD97;
-		m_psh.dwFlags |= PSH_AEROWIZARD | PSH_WIZARD;
-	}
-	else
-	{
-		m_psh.dwFlags |= PSH_WIZARD97|PSH_HEADER|PSH_WATERMARK;
-		m_psh.pszbmWatermark = MAKEINTRESOURCE(IDB_WIZARD);
-		m_psh.hInstance = AfxGetResourceHandle();
-	}
+	m_psh.dwFlags &= ~PSH_WIZARD97;
+	m_psh.dwFlags |= PSH_AEROWIZARD | PSH_WIZARD;
 }
 
 COutputWizard::~COutputWizard()
@@ -771,7 +758,7 @@ void COutputWizard::GenerateOutputProfiles()
 	{
 		CString strProfile(GetProfileName(STE_OUTPUTWIZARD_DVITYPE));
 
-		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS,strProfile);
+		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(strProfile));
 		BOOL bExists = m_profiles.Exists(strProfile);
 
 		// create profile
@@ -807,7 +794,7 @@ void COutputWizard::GenerateOutputProfiles()
 		{
 			strProfile = GetProfileName(STE_OUTPUTWIZARD_DVIPDFMTYPE);
 
-			strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS,strProfile);
+			strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(strProfile));
 			bExists = m_profiles.Exists(strProfile);
 		
 			if (!bExists || AfxMessageBox(strError,MB_ICONQUESTION | MB_YESNO) == IDYES)
@@ -833,8 +820,8 @@ void COutputWizard::GenerateOutputProfiles()
 	{
 		CString strProfile(GetProfileName(STE_OUTPUTWIZARD_PSTYPE));
 
-		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS,strProfile);
-		BOOL bExists = m_profiles.Exists(strProfile);
+		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(strProfile));
+		BOOL bExists = m_profiles.Exists(static_cast<LPCTSTR>(strProfile));
 
 		if (!bExists || AfxMessageBox(strError,MB_ICONQUESTION | MB_YESNO) == IDYES)
 		{
@@ -893,7 +880,7 @@ void COutputWizard::GenerateOutputProfiles()
 	{
 		CString strProfile(GetProfileName(STE_OUTPUTWIZARD_PDFVIAPSTYPE));
 
-		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS,strProfile);
+		strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(strProfile));
 		BOOL bExists = m_profiles.Exists(strProfile);
 
 		if (!bExists || AfxMessageBox(strError,MB_ICONQUESTION | MB_YESNO) == IDYES)
@@ -1117,7 +1104,7 @@ void COutputWizard::SetupGenericPDF( CProfile &p )
 void COutputWizard::GeneratePDFProfile( const CString& name, const CString& strPDFLatexOptions, const CString& viewer_path, const CString& latexFileName )
 {
 	CString strError;
-	strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS,name);
+	strError.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(name));
 	BOOL bExists = m_profiles.Exists(name);
 
 	if (!bExists || AfxMessageBox(strError,MB_ICONQUESTION | MB_YESNO) == IDYES)

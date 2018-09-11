@@ -165,7 +165,7 @@ void CStyleFileContainer::AddSearchPath(const CString &dir)
 	if (!IsDirInSearchPath(dir))
 	{
 		m_SearchPaths.Add(dir);
-		TRACE("Added %s to search path\n", dir);
+		TRACE("Added %s to search path\n", static_cast<LPCTSTR>(dir));
 	}
 }
 
@@ -502,9 +502,12 @@ BOOL CStyleFileContainer::LoadFromXML(const CString &file, BOOL addToExisting)
 				MsXml::CXMLDOMParseError xmlError(xmlDoc.GetParseError());
 				CString strErrorMsg;
 				strErrorMsg.Format(STE_XML_PARSE_ERROR,
-				                   xmlError.GetErrorCode(), xmlError.GetReason(),
-				                   xmlError.GetUrl(), xmlError.GetLine(), xmlError.GetLinepos(),
-				                   xmlError.GetSrcText());
+				                   xmlError.GetErrorCode(),
+                                   static_cast<LPCTSTR>(xmlError.GetReason()),
+				                   static_cast<LPCTSTR>(xmlError.GetUrl()),
+                                   xmlError.GetLine(),
+                                   xmlError.GetLinepos(),
+				                   static_cast<LPCTSTR>(xmlError.GetSrcText()));
 
 				AfxMessageBox(strErrorMsg, MB_ICONEXCLAMATION | MB_OK);
 				bReportedError = true;
@@ -571,7 +574,7 @@ void CStyleFileContainer::ProcessPackageNode(MsXml::CXMLDOMNode& element)
 
 	if (!AddStyleFile(sf))
 	{
-		TRACE("WARNING: Unable to add file %s, seems to be duplicate\n", sf->GetName());
+		TRACE("WARNING: Unable to add file %s, seems to be duplicate\n", static_cast<LPCTSTR>(sf->GetName()));
 		return;
 	}
 

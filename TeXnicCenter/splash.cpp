@@ -36,7 +36,6 @@
 #include "resource.h"  // z.B. resource.h
 
 #include "Splash.h"  // z.B. splash.h
-#include "RunTimeHelper.h"
 #include "FontOccManager.h"
 
 #ifdef _DEBUG
@@ -120,10 +119,7 @@ BOOL CSplashWnd::Create(CWnd* pParentWnd /*= NULL*/)
 	BITMAP bm;
 	m_bitmap.GetBitmap(&bm);
 
-	UINT classStyle = 0;
-
-	if (RunTimeHelper::IsWindowsXPOrHigher())
-		classStyle |= CS_DROPSHADOW;
+	UINT classStyle = CS_DROPSHADOW;
 
 	return CreateEx(WS_EX_TOOLWINDOW /*| WS_EX_TOPMOST*/, //Do not hide other windows with WS_EX_TOPMOST
 	                AfxRegisterWndClass(classStyle, AfxGetApp()->LoadStandardCursor(IDC_ARROW)),
@@ -177,8 +173,10 @@ int CSplashWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CFileVersionInfo fv(::GetModuleHandle(0));
 
 	CString version;
-	version.Format(_T("Version %s. %s\n%s."),fv.GetProductVersion(),
-	               CString(MAKEINTRESOURCE(IDS_LOADING)),fv.GetLegalCopyright());
+	version.Format(_T("Version %s. %s\n%s."),
+                   static_cast<LPCTSTR>(fv.GetProductVersion()),
+	               static_cast<LPCTSTR>(CString(MAKEINTRESOURCE(IDS_LOADING))),
+                   static_cast<LPCTSTR>(fv.GetLegalCopyright()));
 
 	CWindowDC dc(this);
 	CFont* oldfont = dc.SelectObject(&font_);

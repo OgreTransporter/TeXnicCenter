@@ -61,7 +61,6 @@
 #include "LaTeXDocument.h"
 #include "LaTeXView.h"
 #include "Speller.h"
-#include "RunTimeHelper.h"
 #include "BibTeXView.h"
 #include "BibTeXDocument.h"
 #include "MetaPostView.h"
@@ -86,8 +85,14 @@ namespace {
 		::GetLocaleInfo(lcid, LOCALE_SABBREVLANGNAME, strLanguage.GetBuffer(MAX_PATH), MAX_PATH);
 		strLanguage.ReleaseBuffer();
 
+		return;
+
 		CString strPath;
 		AFX_MODULE_STATE* pModuleState = AfxGetModuleState();
+		AFX_MODULE_STATE* pAppState = AfxGetAppModuleState();
+		if (pModuleState->m_appLangDLL == NULL) pModuleState->m_appLangDLL = pAppState->m_appLangDLL;
+
+		if (!pModuleState->m_appLangDLL) return;
 		LPTSTR pszPath = strPath.GetBuffer(MAX_PATH);
 
 		::GetModuleFileName(pModuleState->m_appLangDLL, pszPath, MAX_PATH);
@@ -323,6 +328,8 @@ const CString CTeXnicCenterApp::GetDDEServerName() const
 	return CPathTool::GetFileTitle(strShortName);
 }
 
+#pragma warning(push)
+#pragma warning(disable: 4996)
 BOOL CTeXnicCenterApp::InitInstance()
 {
 	if (!Scintilla_RegisterClasses(AfxGetInstanceHandle()))
@@ -631,8 +638,10 @@ BOOL CTeXnicCenterApp::InitInstance()
 
 		CString strMessage;
 		strMessage.Format(
-		    STE_RESOURCE_CONFLICT, CConfiguration::GetInstance()->m_strGuiLanguage,
-		    fviTxc.GetFileVersion(), fviResources.GetFileVersion());
+		    STE_RESOURCE_CONFLICT,
+			static_cast<LPCTSTR>(CConfiguration::GetInstance()->m_strGuiLanguage),
+			static_cast<LPCTSTR>(fviTxc.GetFileVersion()),
+			static_cast<LPCTSTR>(fviResources.GetFileVersion()));
 		AfxMessageBox(strMessage);
 	}
 
@@ -659,7 +668,7 @@ BOOL CTeXnicCenterApp::InitInstance()
 	// Show Tip
 	ShowTipAtStartup();
 
-	TRACE1("Detected OS: %s\n", m_SystemInfo.ToString());
+	TRACE1("Detected OS: %s\n", static_cast<LPCTSTR>(m_SystemInfo.ToString()));
 
 	// fontDefaultGUIUnderline doesn't contain the font
 	// that is consistent with all the menus and dialogs: replace it
@@ -672,6 +681,7 @@ BOOL CTeXnicCenterApp::InitInstance()
 
 	return TRUE;
 }
+#pragma warning(pop)
 
 void CTeXnicCenterApp::PreLoadState()
 {
@@ -1738,9 +1748,9 @@ void CTeXnicCenterApp::UpdateRecentFileList(CCmdUI *pCmdUI, CRecentFileList &rec
 			{
 				CString strFormat;
 				if (i == 9)
-					strFormat.Format(_T("1&0 %s"), strDisplayName);
+					strFormat.Format(_T("1&0 %s"), static_cast<LPCTSTR>(strDisplayName));
 				else
-					strFormat.Format(_T("&%d %s"), i + 1, strDisplayName);
+					strFormat.Format(_T("&%d %s"), i + 1, static_cast<LPCTSTR>(strDisplayName));
 				strDisplayName = strFormat;
 			}
 
@@ -1783,9 +1793,9 @@ void CTeXnicCenterApp::UpdateRecentFileList(CCmdUI *pCmdUI, CRecentFileList &rec
 				CString strFormat;
 
 				if (i == 9)
-					strFormat.Format(_T("1&0 %s"), strDisplayName);
+					strFormat.Format(_T("1&0 %s"), static_cast<LPCTSTR>(strDisplayName));
 				else
-					strFormat.Format(_T("&%d %s"), i + 1, strDisplayName);
+					strFormat.Format(_T("&%d %s"), i + 1, static_cast<LPCTSTR>(strDisplayName));
 
 				strDisplayName = strFormat;
 			}
@@ -2010,15 +2020,15 @@ bool CTeXnicCenterApp::NewSpeller(const CString& strLanguage, const CString& str
 	// Create dictionary name and path
 	CString dicName;
 	dicName.Format(_T("%s\\%s_%s.dic"),
-	               CConfiguration::GetInstance()->m_strSpellDictionaryPath,
-	               strLanguage,
-	               strLanguageDialect);
+	               static_cast<LPCTSTR>(CConfiguration::GetInstance()->m_strSpellDictionaryPath),
+	               static_cast<LPCTSTR>(strLanguage),
+	               static_cast<LPCTSTR>(strLanguageDialect));
 	// Create affix name and path
 	CString affName;
 	affName.Format(_T("%s\\%s_%s.aff"),
-	               CConfiguration::GetInstance()->m_strSpellDictionaryPath,
-	               strLanguage,
-	               strLanguageDialect);
+	               static_cast<LPCTSTR>(CConfiguration::GetInstance()->m_strSpellDictionaryPath),
+	               static_cast<LPCTSTR>(strLanguage),
+	               static_cast<LPCTSTR>(strLanguageDialect));
 
 	//Compare desired language/dialect to the currently active one
 	if (m_pSpell && m_pSpell->SameLanguage(affName, dicName))
@@ -2118,10 +2128,10 @@ void CTeXnicCenterApp::OnUpdateProject()
 		if (pDoc)
 		{
 			// Get the first document view
-			POSITION pos = pDoc->GetFirstViewPosition();
-			if (pos)
+			POSITION pos1 = pDoc->GetFirstViewPosition();
+			if (pos1)
 			{
-				LaTeXView *pView = (LaTeXView *)pDoc->GetNextView(pos);
+				LaTeXView *pView = (LaTeXView *)pDoc->GetNextView(pos1);
 
 				if (pView && pView->IsKindOf(RUNTIME_CLASS(LaTeXView)))
 					pBackgroundThread->RecheckSpelling(pView);
@@ -2226,7 +2236,7 @@ void CTeXnicCenterApp::FindPackageFilesRecursive(CString dir)
 
 			if (!ext.CompareNoCase(_T("xml")))
 			{
-				TRACE1("Adding package file: %s...\n", CPathTool::GetFileTitle(p));
+				TRACE1("Adding package file: %s...\n", static_cast<LPCTSTR>(CPathTool::GetFileTitle(p)));
 				m_AvailableCommands.LoadFromXML(p, true);
 			}
 		}
@@ -2320,89 +2330,84 @@ int CTeXnicCenterApp::DoMessageBox(LPCTSTR prompt, UINT nType, UINT nIDPrompt)
 {
 	int result;
 
-	if (!RunTimeHelper::IsVista())
-		result = CWinAppEx::DoMessageBox(prompt,nType,nIDPrompt);
-	else
+	// disable windows for modal dialog
+	DoEnableModeless(FALSE);
+
+	HWND hWndTop;
+	HWND hWnd = CWnd::GetSafeOwner_(NULL, &hWndTop);
+
+	// re-enable the parent window, so that focus is restored
+	// correctly when the dialog is dismissed.
+	if (hWnd != hWndTop)
+		EnableWindow(hWnd, TRUE);
+
+	// set help context if possible
+	DWORD* pdwContext = NULL;
+
+	DWORD dwWndPid=0;
+	GetWindowThreadProcessId(hWnd,&dwWndPid);
+
+	if (hWnd != NULL && dwWndPid==GetCurrentProcessId() )
 	{
-		// disable windows for modal dialog
-		DoEnableModeless(FALSE);
+		// use app-level context or frame level context
+		LRESULT lResult = ::SendMessage(hWnd, WM_HELPPROMPTADDR, 0, 0);
+		if (lResult != 0)
+			pdwContext = (DWORD*)lResult;
+	}
 
-		HWND hWndTop;
-		HWND hWnd = CWnd::GetSafeOwner_(NULL, &hWndTop);
+	// for backward compatibility use app context if possible
+	if (pdwContext == NULL)
+		pdwContext = &m_dwPromptContext;
 
-		// re-enable the parent window, so that focus is restored
-		// correctly when the dialog is dismissed.
-		if (hWnd != hWndTop)
-			EnableWindow(hWnd, TRUE);
+	DWORD dwOldPromptContext = 0;
 
-		// set help context if possible
-		DWORD* pdwContext = NULL;
+	if (pdwContext != NULL)
+	{
+		// save old prompt context for restoration later
+		dwOldPromptContext = *pdwContext;
+		if (nIDPrompt != 0)
+			*pdwContext = HID_BASE_PROMPT+nIDPrompt;
+	}
 
-		DWORD dwWndPid=0;
-		GetWindowThreadProcessId(hWnd,&dwWndPid);
-
-		if (hWnd != NULL && dwWndPid==GetCurrentProcessId() )
+	// determine icon based on type specified
+	if ((nType & MB_ICONMASK) == 0)
+	{
+		switch (nType & MB_TYPEMASK)
 		{
-			// use app-level context or frame level context
-			LRESULT lResult = ::SendMessage(hWnd, WM_HELPPROMPTADDR, 0, 0);
-			if (lResult != 0)
-				pdwContext = (DWORD*)lResult;
+		case MB_OK:
+		case MB_OKCANCEL:
+			nType |= MB_ICONEXCLAMATION;
+			break;
+
+		case MB_YESNO:
+		case MB_YESNOCANCEL:
+			nType |= MB_ICONQUESTION;
+			break;
+
+		case MB_ABORTRETRYIGNORE:
+		case MB_RETRYCANCEL:
+			// No default icon for these types, since they are rarely used.
+			// The caller should specify the icon.
+			break;
 		}
-
-		// for backward compatibility use app context if possible
-		if (pdwContext == NULL)
-			pdwContext = &m_dwPromptContext;
-
-		DWORD dwOldPromptContext = 0;
-
-		if (pdwContext != NULL)
-		{
-			// save old prompt context for restoration later
-			dwOldPromptContext = *pdwContext;
-			if (nIDPrompt != 0)
-				*pdwContext = HID_BASE_PROMPT+nIDPrompt;
-		}
-
-		// determine icon based on type specified
-		if ((nType & MB_ICONMASK) == 0)
-		{
-			switch (nType & MB_TYPEMASK)
-			{
-			case MB_OK:
-			case MB_OKCANCEL:
-				nType |= MB_ICONEXCLAMATION;
-				break;
-
-			case MB_YESNO:
-			case MB_YESNOCANCEL:
-				nType |= MB_ICONQUESTION;
-				break;
-
-			case MB_ABORTRETRYIGNORE:
-			case MB_RETRYCANCEL:
-				// No default icon for these types, since they are rarely used.
-				// The caller should specify the icon.
-				break;
-			}
-		}
+	}
 
 #ifdef _DEBUG
-		if ((nType & MB_ICONMASK) == 0)
-			TRACE(traceAppMsg, 0, "Warning: no icon specified for message box.\n");
+	if ((nType & MB_ICONMASK) == 0)
+		TRACE(traceAppMsg, 0, "Warning: no icon specified for message box.\n");
 #endif
 
-		VERIFY(DoTaskDialog(hWnd,prompt,nType,result));
+	VERIFY(DoTaskDialog(hWnd,prompt,nType,result));
 
-		// restore prompt context if possible
-		if (pdwContext != NULL)
-			*pdwContext = dwOldPromptContext;
+	// restore prompt context if possible
+	if (pdwContext != NULL)
+		*pdwContext = dwOldPromptContext;
 
-		// re-enable windows
-		if (hWndTop != NULL)
-			::EnableWindow(hWndTop, TRUE);
+	// re-enable windows
+	if (hWndTop != NULL)
+		::EnableWindow(hWndTop, TRUE);
 
-		DoEnableModeless(TRUE);
-	}
+	DoEnableModeless(TRUE);
 
 	return result;
 }

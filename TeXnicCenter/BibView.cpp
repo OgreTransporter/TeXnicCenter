@@ -2,7 +2,6 @@
 #include "resource.h"
 #include "BibItem.h"
 #include "BibView.h"
-#include "RunTimeHelper.h"
 #include "navigatorview.h"
 #include "LatexProject.h"
 #include "OleDrop.h"
@@ -88,7 +87,7 @@ BibView::BibView()
 : search_timer_enabled_(false)
 , dragged_item_(-1)
 , search_flags_(0)
-, can_group_(RunTimeHelper::IsCommCtrl6())
+, can_group_(true)
 , stop_search_(0)
 , search_semaphore_(1,1)
 , populate_was_search_(false)
@@ -151,14 +150,12 @@ int BibView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CMFCToolBarMenuButton m(~0U,menu.GetSubMenu(0)->GetSafeHmenu(),0);
 	toolbar_.ReplaceButton(ID_SEARCH_OPTIONS,m);
 
-	if (RunTimeHelper::IsCommCtrl6())
-		search_button_->GetEditBox()->SetCueBanner(CString(MAKEINTRESOURCE(IDS_SEARCH)));
+	search_button_->GetEditBox()->SetCueBanner(CString(MAKEINTRESOURCE(IDS_SEARCH)));
 
 	list_view_.CreateEx(WS_EX_CLIENTEDGE,WS_CHILD|WS_VISIBLE|WS_CLIPCHILDREN|WS_TABSTOP|LVS_REPORT|LVS_SHOWSELALWAYS,
 		CRect(0,0,0,0),this,ListID);
 
-	if (RunTimeHelper::IsVista())
-		::SetWindowTheme(list_view_,L"explorer",0);
+	::SetWindowTheme(list_view_,L"explorer",0);
 
 	list_view_.SetExtendedStyle(LVS_EX_DOUBLEBUFFER|LVS_EX_FULLROWSELECT|
 		LVS_EX_HEADERDRAGDROP|LVS_EX_LABELTIP);
@@ -284,14 +281,9 @@ void BibView::OnParsingFinished()
 
 	LVGROUP lvg = {};
 	lvg.mask = LVGF_HEADER|LVGF_GROUPID;
-
-	if (RunTimeHelper::IsVista()) {
-		lvg.cbSize = sizeof(LVGROUP);
-		lvg.mask |= LVGF_STATE;
-		lvg.state = LVGS_COLLAPSIBLE;
-	}
-	else // Windows XP compatibility
-		lvg.cbSize = LVGROUP_V5_SIZE;
+	lvg.cbSize = sizeof(LVGROUP);
+	lvg.mask |= LVGF_STATE;
+	lvg.state = LVGS_COLLAPSIBLE;
 
 	for (StructureItemContainer::const_iterator it = a.begin(); it != a.end(); ++it) {
 		const StructureItem &si = *it;
@@ -422,13 +414,12 @@ bool BibView::Contains(const CString& text, const CString& search)
 
 bool BibView::ContainsAny( const CString& text, std::vector<CString>& tokens )
 {
-	std::vector<CString>::iterator it = tokens.begin();
 	pos_buffer_.clear();
 
 	// We need to find all matches. If we stop after the first match
 	// then e.g. a search for an item with more than one author will fail
 	// in case the input string contains partial names for a couple of authors
-	for ( ; it != tokens.end() && tokens.size() != pos_buffer_.size() && !stop_search_; ++it) {
+	for (std::vector<CString>::iterator it = tokens.begin() ; it != tokens.end() && tokens.size() != pos_buffer_.size() && !stop_search_; ++it) {
 		if (Contains(text,*it))
 			pos_buffer_.push_back(it);
 	}

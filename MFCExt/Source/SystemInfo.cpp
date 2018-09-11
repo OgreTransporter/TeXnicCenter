@@ -61,6 +61,8 @@ CSystemInfo::~CSystemInfo()
 
 }
 
+#pragma warning(push)
+#pragma warning(disable: 4996)
 int CSystemInfo::DetectWindowsVersion()
 {
 	m_bOsVersionInfoEx = FALSE;
@@ -269,6 +271,7 @@ int CSystemInfo::DetectWindowsVersion()
 
    return 1;
 }
+#pragma warning(pop)
 
 WindowsVersion CSystemInfo::GetWindowsVersion() const
 {

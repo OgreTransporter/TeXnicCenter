@@ -413,7 +413,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 				if (m_pParseOutputHandler && !m_bCancel)
 				{
 					CString message;
-					message.Format(STE_PARSE_PARSING, strPath);
+					message.Format(STE_PARSE_PARSING, static_cast<LPCTSTR>(strPath));
 					
 					info.SetErrorMessage(message);
 
@@ -430,7 +430,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			AddFileItem(strPath, StructureItem::missingTexFile, strActualFile, nActualLine, aSI);
 
 			CString message;
-			message.Format(STE_FILE_EXIST, strPath);
+			message.Format(STE_FILE_EXIST, static_cast<LPCTSTR>(strPath));
 
 			info.SetErrorMessage(message);
 			m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -532,7 +532,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			if (GraphicFileFound)
 			{
 				CString message;
-				message.Format(STE_PARSE_FOUND, strCompletePath);
+				message.Format(STE_PARSE_FOUND, static_cast<LPCTSTR>(strCompletePath));
 				
 				info.SetErrorMessage(message);
 				m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::information);
@@ -557,7 +557,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 				strCompletePath = strPath + _T(" [") + concat + _T("]");
 				
 				CString message;
-				message.Format(STE_FILE_EXIST, strCompletePath);
+				message.Format(STE_FILE_EXIST, static_cast<LPCTSTR>(strCompletePath));
 				
 				info.SetErrorMessage(message);
 				m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -820,7 +820,6 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 		ParseString(lpText, what[0].first - lpText, cookies,
 			strActualFile, nActualLine, nFileDepth, aSI);
 
-		StructureItem si;
 		INITIALIZE_SI(si);
 
 		si.SetParent(-1);
@@ -843,7 +842,6 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 		ParseString(lpText, what[0].first - lpText, cookies,
 			strActualFile, nActualLine, nFileDepth, aSI);
 
-		StructureItem si;
 		INITIALIZE_SI(si);
 
 		si.SetParent(-1);
@@ -892,9 +890,9 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 		// pop StructureItem::figure from stack
 		if (!cookies.empty() && cookies.top().nCookieType == StructureItem::figure)
 		{
-			StructureItem &si = aSI[cookies.top().nItemIndex];
+			StructureItem &six = aSI[cookies.top().nItemIndex];
 			cookies.pop();
-			CreateDefaultTitle(si);
+			CreateDefaultTitle(six);
 		}
 		else if (m_pParseOutputHandler && !m_bCancel)
 		{
@@ -902,7 +900,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			INITIALIZE_OI(info);
 
 			CString message;
-			message.Format(STE_PARSE_FOUND_UNMATCHED, m_sItemNames[StructureItem::figure]);
+			message.Format(STE_PARSE_FOUND_UNMATCHED, static_cast<LPCTSTR>(m_sItemNames[StructureItem::figure]));
 
 			info.SetErrorMessage(message);
 			m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -924,9 +922,9 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 		// pop StructureItem::figure from stack
 		if (!cookies.empty() && cookies.top().nCookieType == StructureItem::table)
 		{
-			StructureItem &si = aSI[cookies.top().nItemIndex];
+			StructureItem &six = aSI[cookies.top().nItemIndex];
 			cookies.pop();
-			CreateDefaultTitle(si);
+			CreateDefaultTitle(six);
 		}
 		else if (m_pParseOutputHandler && !m_bCancel)
 		{
@@ -934,7 +932,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			INITIALIZE_OI(info);
 
 			CString message;
-			message.Format(STE_PARSE_FOUND_UNMATCHED, m_sItemNames[StructureItem::table]);
+			message.Format(STE_PARSE_FOUND_UNMATCHED, static_cast<LPCTSTR>(m_sItemNames[StructureItem::table]));
 
 			info.SetErrorMessage(message);
 			m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -956,9 +954,9 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 		// pop equation from stack
 		if (!cookies.empty() && cookies.top().nCookieType == StructureItem::equation)
 		{
-			StructureItem &si = aSI[cookies.top().nItemIndex];
+			StructureItem &six = aSI[cookies.top().nItemIndex];
 			cookies.pop();
-			CreateDefaultTitle(si);
+			CreateDefaultTitle(six);
 		}
 		else if (m_pParseOutputHandler && !m_bCancel)
 		{
@@ -966,7 +964,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			INITIALIZE_OI(info);
 
 			CString message;
-			message.Format(STE_PARSE_FOUND_UNMATCHED, m_sItemNames[StructureItem::equation]);
+			message.Format(STE_PARSE_FOUND_UNMATCHED, static_cast<LPCTSTR>(m_sItemNames[StructureItem::equation]));
 
 			info.SetErrorMessage(message);
 			m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -1008,20 +1006,20 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			&& (cookies.top().nCookieType == StructureItem::unknownEnv)
 		        && (aSI[cookies.top().nItemIndex].m_strTitle == strEnvName))
 		{
-			StructureItem &si = aSI[cookies.top().nItemIndex];
+			StructureItem &six = aSI[cookies.top().nItemIndex];
 			cookies.pop();
 
-			if (si.m_strCaption.IsEmpty() && !si.HasLabels())
+			if (six.m_strCaption.IsEmpty() && !si.HasLabels())
 			{
-				si.m_strTitle.Format(_T("%s: %s (%d)"), strEnvName,
-				                     ResolveFileName(si.m_strPath), si.m_nLine);
+				six.m_strTitle.Format(_T("%s: %s (%d)"), static_cast<LPCTSTR>(strEnvName),
+				                     static_cast<LPCTSTR>(ResolveFileName(six.m_strPath)), six.m_nLine);
 			}
 			else
 			{
-				if (si.m_strCaption.IsEmpty())
-					si.SetTitle(strEnvName + _T(": ") + si.GetLabel());
+				if (six.m_strCaption.IsEmpty())
+					six.SetTitle(strEnvName + _T(": ") + six.GetLabel());
 				else
-					si.SetTitle(strEnvName + _T(": ") + si.GetLabel());
+					six.SetTitle(strEnvName + _T(": ") + six.GetLabel());
 			}
 		}
 		else if (m_pParseOutputHandler && !m_bCancel)
@@ -1030,7 +1028,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 			INITIALIZE_OI(info);
 
 			CString message;
-			message.Format(STE_PARSE_FOUND_UNMATCHED, strEnvName);
+			message.Format(STE_PARSE_FOUND_UNMATCHED, static_cast<LPCTSTR>(strEnvName));
 
 			info.SetErrorMessage(message);
 			m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth, CParseOutputHandler::warning);
@@ -1134,7 +1132,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 					if (m_pParseOutputHandler && !m_bCancel)
 					{
 						CString message;
-						message.Format(STE_PARSE_PARSING, strPath);
+						message.Format(STE_PARSE_PARSING, static_cast<LPCTSTR>(strPath));
 
 						info.SetErrorMessage(message);
 						m_pParseOutputHandler->OnParseLineInfo(info, nFileDepth,
@@ -1212,7 +1210,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 						}
 						else
 						{
-							TRACE("NP detected in CBiBTeXFile %s", strPath);
+							TRACE("NP detected in CBiBTeXFile %s", static_cast<LPCTSTR>(strPath));
 						}
 					}
 				}
@@ -1225,7 +1223,7 @@ void CStructureParser::ParseString(LPCTSTR lpText, int nLength, CCookieStack &co
 						prefix.IsEmpty() ? NULL : prefix);
 
 					CString message;
-					message.Format(STE_FILE_EXIST, strPath);
+					message.Format(STE_FILE_EXIST, static_cast<LPCTSTR>(strPath));
 
 					info.SetErrorMessage(message);
 
@@ -1317,7 +1315,7 @@ void CStructureParser::EmptyCookieStack(CCookieStack &cookies, StructureItemCont
 				info.SetSourceFile(si.m_strPath);
 
 				CString message;
-				message.Format(STE_PARSE_FOUND_UNMATCHED, aSI[item.nItemIndex].GetTitle());
+				message.Format(STE_PARSE_FOUND_UNMATCHED, static_cast<LPCTSTR>(aSI[item.nItemIndex].GetTitle()));
 
 				info.SetErrorMessage(message);
 
@@ -1520,7 +1518,7 @@ void CStructureParser::CreateDefaultTitle( StructureItem& si,bool bForce /*= fal
 		if (si.m_strCaption.IsEmpty() && !si.HasLabels())
 		{
 			//Label and Caption empty ==> Generate a title from the filename
-			si.m_strTitle.Format(_T("%s (%d)"),ResolveFileName(si.m_strPath),si.m_nLine);
+			si.m_strTitle.Format(_T("%s (%d)"), static_cast<LPCTSTR>(ResolveFileName(si.m_strPath)), si.m_nLine);
 		}
 		else
 		{

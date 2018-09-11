@@ -34,13 +34,12 @@
 
 #include "stdafx.h"
 
-#include <algorithm>
 #include <functional>
+#include <algorithm>
 
 #include "resource.h"
 #include "global.h"
 #include "TextFileSaveDialog.h"
-#include "RunTimeHelper.h"
 
 LPCTSTR const Format[] = {_T("Windows"),_T("Unix"),_T("Macintosh"),0};
 LPCTSTR const Encoding[] = {_T("ANSI"),_T("UTF-8"),_T("UTF-16"),_T("UTF-16 Big Endian"),_T("UTF-32"),_T("UTF-32 Big Endian"),0};
@@ -191,8 +190,8 @@ BOOL CTextFileSaveDialog::OnInitDialog()
 	// Add encoding data
 	const std::vector<CString> encodings = GetEncodings();
 	
-	std::for_each(encodings.begin(),encodings.end(),
-		std::bind1st(std::mem_fun1(&CComboBox::AddString),&encoding_));
+	for (std::vector<CString>::const_iterator iter = encodings.begin(); iter != encodings.end(); iter++)
+		encoding_.AddString(*iter);
 
 	//
 	UpdateData(FALSE);

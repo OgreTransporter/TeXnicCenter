@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "ThemedCtrl.h"
-#include "RunTimeHelper.h"
 
 // Helper for drawing theme client edge
 
@@ -100,7 +99,7 @@ LRESULT ThemedCtrl::OnNcPaint(UINT /*uMsg*/,WPARAM wParam,LPARAM /*lParam*/,BOOL
 void ThemedCtrl::Initialize()
 {
 	ModifyStyleEx(0,WS_EX_CLIENTEDGE);
-	theming_supported_ = RunTimeHelper::IsCommCtrl6() && ::IsAppThemed();
+	theming_supported_ = ::IsAppThemed();
 
 	if (theming_supported_)
 		m_hTheme = ::OpenThemeData(m_hWnd,L"TREEVIEW");

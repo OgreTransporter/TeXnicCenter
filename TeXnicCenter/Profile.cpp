@@ -102,7 +102,6 @@ void CProfileMap::Remove(LPCTSTR lpszKey)
 		}
 
 		CString strKey;
-		CProfile *pProfile;
 		GetNextAssoc(pos, strKey, pProfile);
 		m_strActiveProfile = strKey;
 	}
@@ -215,7 +214,7 @@ void CProfileMap::CopyFrom(const CProfileMap &profiles, BOOL bEmptyBeforeCopy /*
 		if (bAskUserToOverwrite && Exists(strKey))
 		{
 			CString strMsg;
-			strMsg.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, strKey);
+			strMsg.Format(STE_OUTPUTWIZARD_OUTPUTTYPEEXISTS, static_cast<LPCTSTR>(strKey));
 			if (AfxMessageBox(strMsg, MB_YESNO | MB_ICONQUESTION) != IDYES)
 				// skip this item
 				continue;
@@ -388,9 +387,12 @@ BOOL CProfileMap::LoadXml(LPCTSTR lpszPath)
 				MsXml::CXMLDOMParseError xmlError(xmlDoc.GetParseError());
 				CString strErrorMsg;
 				strErrorMsg.Format(STE_XML_PARSE_ERROR,
-				                   xmlError.GetErrorCode(), xmlError.GetReason(),
-				                   xmlError.GetUrl(), xmlError.GetLine(), xmlError.GetLinepos(),
-				                   xmlError.GetSrcText());
+				                   xmlError.GetErrorCode(),
+                                   static_cast<LPCTSTR>(xmlError.GetReason()),
+				                   static_cast<LPCTSTR>(xmlError.GetUrl()),
+                                   xmlError.GetLine(),
+                                   xmlError.GetLinepos(),
+				                   static_cast<LPCTSTR>(xmlError.GetSrcText()));
 
 				AfxMessageBox(strErrorMsg, MB_ICONEXCLAMATION | MB_OK);
 				bReportedError = true;

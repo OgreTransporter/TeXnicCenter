@@ -63,7 +63,7 @@ public:
 	}
 
 	/* Command was selected */
-	virtual void OnACCommandSelect(const CLaTeXCommand* cmd, const TCHAR AdditionalInsertChar = _T(''))
+	virtual void OnACCommandSelect(const CLaTeXCommand* cmd, const TCHAR AdditionalInsertChar = 0)
 	{
 		p->OnACCommandSelect(cmd, AdditionalInsertChar);
 	}
@@ -325,7 +325,7 @@ void LaTeXView::InstantAdvice()
 					if (!instant_advice_tip_->IsWindowVisible())
 					{
 						// Compute window size
-						CPoint ptClient(GetCtrl().PointXFromPosition(ptStart),GetCtrl().PointYFromPosition(ptStart));
+						ptClient = CPoint(GetCtrl().PointXFromPosition(ptStart),GetCtrl().PointYFromPosition(ptStart));
 						::ClientToScreen(GetSafeHwnd(),&ptClient);
 						// Determine if there is space enough to show the window below the text
 						ptClient.y += GetCtrl().TextHeight(GetCtrl().LineFromPosition(ptStart));
@@ -412,7 +412,7 @@ void LaTeXView::OnACCommandSelect(const CLaTeXCommand* cmd, const TCHAR Addition
 	bool bTryCursorPositioning = true;
 
 	//Add additional char
-	if (AdditionalInsertChar != _T('')) {
+	if (AdditionalInsertChar != 0) {
 		const TCHAR text[] = {static_cast<TCHAR>(AdditionalInsertChar), 0};
 		GetCtrl().InsertText(-1, text);
 		GetCtrl().SetSel(-1, GetCtrl().GetCurrentPos() + 1);
@@ -1066,7 +1066,7 @@ void LaTeXView::OnFormatTextForeColor()
 				if (s == e) {
 					// No text selected, use \color{}
 					CStringA text;
-					text.Format("\\color%s",spec);
+					text.Format("\\color%s", static_cast<LPCSTR>(spec));
 
 					c.InsertText(s,text);
 					e = s + text.GetLength();
@@ -1083,10 +1083,10 @@ void LaTeXView::OnFormatTextForeColor()
 
 					// Generate the \textcolor string
 					CStringA fmt1;
-					fmt1.Format("\\textcolor%s{",spec);
+					fmt1.Format("\\textcolor%s{", static_cast<LPCSTR>(spec));
 
 					CStringA fmt2;
-					fmt2.Format("%s}",text);
+					fmt2.Format("%s}", static_cast<LPCSTR>(text));
 
 					// Replace the selection
 					c.ReplaceSel(fmt1 + fmt2);
@@ -1141,10 +1141,10 @@ void LaTeXView::OnFormatTextBackColor()
 
 	// Generate the \textcolor string
 	CStringA fmt1;
-	fmt1.Format("\\colorbox%s{",spec);
+	fmt1.Format("\\colorbox%s{", static_cast<LPCSTR>(spec));
 
 	CStringA fmt2;
-	fmt2.Format("%s}",text);
+	fmt2.Format("%s}", static_cast<LPCSTR>(text));
 
 	// Replace the selection
 	c.ReplaceSel(fmt1 + fmt2);	

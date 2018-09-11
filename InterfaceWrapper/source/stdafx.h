@@ -26,6 +26,8 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include <sdkddkver.h>
+
 #define VC_EXTRALEAN		// Selten benutzte Teile der Windows-Header nicht einbinden
 
 #include <afx.h>

@@ -137,7 +137,7 @@ void CStyleFile::ProcessFile()
 	}
 	catch (CFileException& ex)
 	{
-		TRACE(_T("Error opening style file: %s\n"), ex);
+		TRACE(_T("Error opening style file: %s\n"), static_cast<LPCTSTR>(ex.m_strFileName));
 		UNUSED_ALWAYS(ex);
 
 		f.Close();
@@ -279,7 +279,7 @@ void CStyleFile::ParseBuffer(const TCHAR *buf)
 						case LATEX_CLS_DESC:
 						case LATEX_STY_DESC:
 							ExtractDescription(close, openBr, closeBr, m_Desc);
-							TRACE(_T("Desc: %s: <%s>\n"), m_Name, m_Desc);
+							TRACE(_T("Desc: %s: <%s>\n"), static_cast<LPCTSTR>(m_Name), static_cast<LPCTSTR>(m_Desc));
 							break;
 					}
 				}
@@ -411,7 +411,7 @@ bool CStyleFile::AddCommand(SharedLaTeXCommandPtr& cmd)
 	}
 	else
 	{
-		TRACE(_T("** Duplicate key: %s\n"), cmd->ToString());
+		TRACE(_T("** Duplicate key: %s\n"), static_cast<LPCTSTR>(cmd->ToString()));
 	}
 	return false;
 }

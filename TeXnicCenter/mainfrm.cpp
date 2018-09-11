@@ -57,7 +57,6 @@
 #include "Splash.h"
 #include "ToolBarsCustomizeDialog.h"
 #include "ProfileDialog.h"
-#include "RunTimeHelper.h"
 #include "LaTeXDocument.h"
 #include "TeXnicCenter.h"
 #include "TransparencyDlg.h"
@@ -550,7 +549,7 @@ bool CMainFrame::CreateToolBar(CMFCToolBar* pToolBar, UINT unID, UINT unTitleID,
 
 	if (!pToolBar->Create(this, style, unID) || !pToolBar->LoadToolBar(unID))
 	{
-		TRACE1("!Failed to create %s tool bar\n", AfxLoadString(unTitleID));
+		TRACE1("!Failed to create %s tool bar\n", static_cast<LPCTSTR>(AfxLoadString(unTitleID)));
 		return false; // creation failed
 	}
 
@@ -1143,14 +1142,14 @@ LRESULT CMainFrame::OnResetToolbar(WPARAM wParam, LPARAM /*lParam*/)
 			CString text;
 			t->GetDocString(text, CDocTemplate::regFileTypeName);
 
-			UINT id = ID_LATEX_NEW;
+			UINT nid = ID_LATEX_NEW;
 
 			if (t == theApp.GetBibTeXDocTemplate())
-				id = ID_BIBTEX_NEW;
+				nid = ID_BIBTEX_NEW;
 			else if (t == theApp.GetMetaPostDocTemplate())
-				id = ID_METAPOST_NEW;
+				nid = ID_METAPOST_NEW;
 
-			menu.AppendMenu(MF_STRING, id, text);
+			menu.AppendMenu(MF_STRING, nid, text);
 		}
 
 		CMFCToolBarButton* pb = m_wndToolBar.GetButton(m_wndToolBar.CommandToIndex(ID_LATEX_NEW));
@@ -2035,7 +2034,7 @@ void CMainFrame::OnApplicationLook(UINT id)
 void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
 {
 	if (pCmdUI->m_nID == ID_VIEW_APP_LOOK_WIN_XP)
-		pCmdUI->Enable(RunTimeHelper::IsCommCtrl6());
+		pCmdUI->Enable(TRUE);
 
 	pCmdUI->SetRadio(theApp.GetApplicationLook() == pCmdUI->m_nID);
 }

@@ -8,7 +8,6 @@
 #include "SpellerBackgroundThread.h"
 #include "CodeBookmark.h"
 #include "EncodingConverter.h"
-#include "RunTimeHelper.h"
 #include "configuration.h"
 #include "EndOfLineMode.h"
 #include "textfilesavedialog.h"
@@ -919,14 +918,7 @@ void CodeDocument::SetUseBOM( bool use /*= true*/ )
 
 BOOL CodeDocument::SaveModified()
 {
-	BOOL result;
-
-	if (!RunTimeHelper::IsVista())
-		result = CScintillaDoc::SaveModified();
-	else
-		result = DoSaveModified();
-
-	return result;
+	return DoSaveModified();
 }
 
 BOOL CodeDocument::DoSave(LPCTSTR lpszPathName, BOOL bReplace /*= TRUE*/)
@@ -1034,15 +1026,7 @@ BOOL CodeDocument::DoSaveModified()
 		CString prompt;
 		AfxFormatString1(prompt,AFX_IDP_ASK_TO_SAVE,name);
 
-		int button;
-		if (!RunTimeHelper::IsVista())
-		{
-			button = AfxMessageBox(prompt, MB_YESNOCANCEL, AFX_IDP_ASK_TO_SAVE);
-		}
-		else
-		{
-			button = ShowSaveTaskDialog(prompt);
-		}
+		int button = ShowSaveTaskDialog(prompt);
 
 		switch (button) {
 			case IDCANCEL:
@@ -1367,11 +1351,11 @@ void CodeDocument::UpdateTextBufferOnExternalChange()
 	int nResult;
 
 	if (IsModified()) {
-		strMsg.Format(STE_FILE_EXTERNALCHANGEEX,GetPathName());
+		strMsg.Format(STE_FILE_EXTERNALCHANGEEX, static_cast<LPCTSTR>(GetPathName()));
 		nResult = AfxMessageBox(strMsg,MB_ICONEXCLAMATION | MB_YESNO);
 	}
 	else {
-		strMsg.Format(STE_FILE_EXTERNALCHANGE,GetPathName());
+		strMsg.Format(STE_FILE_EXTERNALCHANGE, static_cast<LPCTSTR>(GetPathName()));
 		nResult = AfxMessageBox(strMsg,MB_ICONINFORMATION | MB_YESNO);
 	}
 
@@ -1380,9 +1364,9 @@ void CodeDocument::UpdateTextBufferOnExternalChange()
 
 		if (dwResult != ERROR_SUCCESS) {
 			strMsg.Format(STE_FILE_INUSE,
-				AfxLoadString(IDS_OPEN),
-				GetPathName(),
-				AfxFormatSystemString(dwResult));
+				static_cast<LPCTSTR>(AfxLoadString(IDS_OPEN)),
+				static_cast<LPCTSTR>(GetPathName()),
+				static_cast<LPCTSTR>(AfxFormatSystemString(dwResult)));
 			AfxMessageBox(strMsg,MB_ICONINFORMATION | MB_OK);
 			GetView()->GetCtrl().SetReadOnly(TRUE);
 		} else {
@@ -1448,9 +1432,9 @@ BOOL CodeDocument::OnSaveDocument(LPCTSTR lpszPathName)
 	if (result != ERROR_SUCCESS) {
 		CString strMsg;
 		strMsg.Format(STE_FILE_INUSE,
-			AfxLoadString(IDS_SAVE),
+			static_cast<LPCTSTR>(AfxLoadString(IDS_SAVE)),
 			lpszPathName,
-			AfxFormatSystemString(result));
+			static_cast<LPCTSTR>(AfxFormatSystemString(result)));
 		AfxMessageBox(strMsg,MB_ICONEXCLAMATION | MB_OK);
 
 		save_copy_ = false;

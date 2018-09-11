@@ -223,9 +223,9 @@ BOOL CLaTeXProject::OnOpenProject(LPCTSTR lpszPathName)
 		//tcp-file not valid: inform the user about this error.
 		CString strMsg;
 		strMsg.Format(STE_FILE_INUSE,
-		              AfxLoadString(IDS_OPEN),
-		              lpszPathName,
-		              AfxLoadString(STE_TCP_INVALID));
+		              static_cast<LPCTSTR>(AfxLoadString(IDS_OPEN)),
+		              static_cast<LPCTSTR>(lpszPathName),
+		              static_cast<LPCTSTR>(AfxLoadString(STE_TCP_INVALID)));
 
 		AfxMessageBox(strMsg,MB_ICONEXCLAMATION | MB_OK);
 
@@ -639,9 +639,6 @@ void CLaTeXProject::SerializeSession(CIniFile &ini, BOOL bWrite)
 			// Restore the folding points before the views are created
 			// otherwise the folding will no be set
 
-			typedef std::multimap<CString,CString> ValueContainerType;
-			ValueContainerType values;
-
 			folding_points_.clear();
 
 			FoldingPointContainerType points;
@@ -660,8 +657,8 @@ void CLaTeXProject::SerializeSession(CIniFile &ini, BOOL bWrite)
 					points.clear();
 
 					std::copy(iterator_type(iss),iterator_type(),std::back_inserter(points));
-					std::for_each(points.begin(),points.end(),
-						std::bind2nd(std::mem_fun1_ref(&FoldingPoint::SetContracted),true));
+					for (size_t ui = 0; ui < points.size(); ui++)
+						points[ui].SetContracted(true);
 
 					folding_points_.insert(std::make_pair(it->first,points));
 
@@ -697,7 +694,7 @@ void CLaTeXProject::SerializeSession(CIniFile &ini, BOOL bWrite)
 		for (int nFrame=0;nFrame<nFrameCount;nFrame++)
 		{
 			strKey.Format(KEY_FRAMEINFO,nFrame);
-			key.Format(KEY_VIEWINFO,strKey,0,0);			
+			key.Format(KEY_VIEWINFO, static_cast<LPCTSTR>(strKey), 0, 0);
 
 			CString strDocPath = ini.GetValue(strKey,VAL_FRAMEINFO_DOCPATH,_T(""));
 

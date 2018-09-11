@@ -41,12 +41,11 @@
 #include "LatexProject.h"
 #include "OleDrop.h"
 #include "OutputDoc.h"
-#include "RunTimeHelper.h"
 
 CString FormatInput(const StructureItem& item)
 {
 	CString text;
-	text.Format(_T("\\input{%s}"), CPathTool::GetFileTitle(item.GetTitle()));
+	text.Format(_T("\\input{%s}"), static_cast<LPCTSTR>(CPathTool::GetFileTitle(item.GetTitle())));
 
 	return text;
 }
@@ -54,7 +53,7 @@ CString FormatInput(const StructureItem& item)
 CString FormatInclude(const StructureItem& item)
 {
 	CString text;
-	text.Format(_T("\\include{%s}"), CPathTool::GetFileTitle(item.GetTitle()));
+	text.Format(_T("\\include{%s}"), static_cast<LPCTSTR>(CPathTool::GetFileTitle(item.GetTitle())));
 
 	return text;
 }
@@ -286,10 +285,8 @@ int FileTreeCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	MapKeyStateToFormat(MK_CONTROL, FormatInclude);
 	MapKeyStateToFormat(MK_SHIFT, bind(ExtractFileTitle, bind(&StructureItem::GetTitle, _1)));
 
-	if (RunTimeHelper::IsVista()) {
-		const DWORD style = TVS_EX_AUTOHSCROLL;
-		SetExtendedStyle(style, style);
-	}
+	const DWORD style = TVS_EX_AUTOHSCROLL;
+	SetExtendedStyle(style, style);
 
 	return 0;
 }
@@ -389,35 +386,35 @@ void FileTreeCtrl::Populate()
 		{
 			if (reldir != _T("."))
 			{
-				ParentDirectoryMap::iterator it = parents.find(reldir);
+				ParentDirectoryMap::iterator it2 = parents.find(reldir);
 
-				if (it != parents.end())
-					parent = it->second;
+				if (it2 != parents.end())
+					parent = it2->second;
 				else
 				{
 					CString component, path;
-					int index;
+					int index2;
 
 					LPCTSTR const sep = _T("\\/");
 					bool stop = false;
 
 					while (!stop)
 					{
-						index = reldir.FindOneOf(sep);
+						index2 = reldir.FindOneOf(sep);
 
-						if (index == -1)
+						if (index2 == -1)
 						{
-							index = reldir.GetLength();
+							index2 = reldir.GetLength();
 							stop = true;
 						}
 
-						component = reldir.Left(index);
+						component = reldir.Left(index2);
 						path += component;
 
-						it = parents.find(path);
+						it2 = parents.find(path);
 
-						if (it != parents.end())
-							parent = it->second;
+						if (it2 != parents.end())
+							parent = it2->second;
 						else
 						{
 							const CString& absolutePath =
@@ -433,8 +430,8 @@ void FileTreeCtrl::Populate()
 
 						if (!stop)
 						{
-							path += reldir[index]; // add the \ or /
-							reldir.Delete(0, index + 1);
+							path += reldir[index2]; // add the \ or /
+							reldir.Delete(0, index2 + 1);
 						}
 					}
 				}
@@ -528,16 +525,8 @@ void FileTreeCtrl::Initialize()
 
 	if (SUCCEEDED(code)) {
 		CComPtr<IShellFolder> shellFolder;
-		if (RunTimeHelper::IsVista())
-		{
-			code = SHBindToObject(shellFolder_, pidl, NULL, IID_IShellFolder,
-				reinterpret_cast<void**>(&shellFolder));
-		}
-		else
-		{
-			code = ShellUtilXP_BindToObject(shellFolder_, pidl, IID_IShellFolder,
-				reinterpret_cast<void**>(&shellFolder));
-		}
+		code = SHBindToObject(shellFolder_, pidl, NULL, IID_IShellFolder,
+			reinterpret_cast<void**>(&shellFolder));
 
 		if (SUCCEEDED(code)) {
 			projectShellFolder_ = shellFolder;

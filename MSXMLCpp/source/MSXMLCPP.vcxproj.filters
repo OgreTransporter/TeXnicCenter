@@ -86,8 +86,5 @@
     <CustomBuildStep Include="MSXMLCPP.def">
       <Filter>Source Files</Filter>
     </CustomBuildStep>
-    <CustomBuildStep Include="MSXMLCPPD.def">
-      <Filter>Source Files</Filter>
-    </CustomBuildStep>
   </ItemGroup>
 </Project>

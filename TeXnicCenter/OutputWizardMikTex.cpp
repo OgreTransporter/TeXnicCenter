@@ -30,7 +30,6 @@
 #include "resource.h"
 #include "OutputWizard.h"
 #include "OutputWizardMikTex.h"
-#include "RunTimeHelper.h"
 #include "TeXnicCenter.h"
 
 #ifdef _DEBUG
@@ -76,26 +75,21 @@ void COutputWizardMiKTeX::DoDataExchange(CDataExchange* pDX)
 BOOL COutputWizardMiKTeX::OnSetActive()
 {
 	CString fmt;
-	fmt.Format(IDS_WIZARD_MIKTEX_DETECTED,GetWizard()->GetDistributionName());
+	fmt.Format(IDS_WIZARD_MIKTEX_DETECTED, static_cast<LPCTSTR>(GetWizard()->GetDistributionName()));
 
 	PropSheet_SetHeaderTitle(GetWizard()->GetSafeHwnd(),
 		PropSheet_HwndToIndex(GetWizard()->GetSafeHwnd(),m_hWnd),static_cast<LPCTSTR>(fmt));
 
-	fmt.Format(IDS_CONFIGURE_FOUND_DISTRIBUTION,GetWizard()->GetDistributionName());
+	fmt.Format(IDS_CONFIGURE_FOUND_DISTRIBUTION, static_cast<LPCTSTR>(GetWizard()->GetDistributionName()));
 
 	SetDlgItemText(IDC_OW_MIKTEXYES,fmt);
 
-	if (RunTimeHelper::IsVista())
-	{
-		PropSheet_EnableWizButtons(m_hWnd,
-		                           PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
-		                           PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL);
-		PropSheet_ShowWizButtons(m_hWnd,
-		                         PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
-		                         PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_FINISH | PSWIZB_CANCEL);
-	}
-	else
-		GetWizard()->SetWizardButtons(PSWIZB_NEXT | PSWIZB_BACK);
+	PropSheet_EnableWizButtons(m_hWnd,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL);
+	PropSheet_ShowWizButtons(m_hWnd,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_FINISH | PSWIZB_CANCEL);
 
 	return OutputWizardPage::OnSetActive();
 }

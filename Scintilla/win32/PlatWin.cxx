@@ -3218,6 +3218,8 @@ int Platform::Clamp(int val, int minVal, int maxVal) {
 	return val;
 }
 
+#pragma warning(push)
+#pragma warning(disable: 4996)
 void Platform_Initialise(void *hInstance) {
 	OSVERSIONINFO osv = {sizeof(OSVERSIONINFO),0,0,0,0,TEXT("")};
 	::GetVersionEx(&osv);
@@ -3243,6 +3245,7 @@ void Platform_Initialise(void *hInstance) {
 
 	ListBoxX_Register();
 }
+#pragma warning(pop)
 
 void Platform_Finalise() {
 	if (reverseArrowCursor != NULL)

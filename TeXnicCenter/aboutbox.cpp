@@ -453,7 +453,7 @@ LRESULT CAboutDlg::OnCreditsPaint( UINT, LPARAM, WPARAM, BOOL& )
 				{
 					CString str;
 					str.Format(_T("Could not find bitmap resource \"%s\". ")
-						_T("Be sure to assign the bitmap a QUOTED resource name"),szBitmap);
+						_T("Be sure to assign the bitmap a QUOTED resource name"), static_cast<LPCTSTR>(szBitmap));
 					KillTimer(DISPLAY_TIMER_ID);
 					AfxMessageBox(str);
 					return 0;

@@ -36,7 +36,6 @@
 #include "resource.h"
 #include "OptionPageFileClean.h"
 #include "Configuration.h"
-#include "RunTimeHelper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -230,10 +229,7 @@ BOOL COptionPageFileClean::OnInitDialog()
 	//Change Style
 	m_wndList.SetExtendedStyle(m_wndList.GetExtendedStyle() | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER); //| LVS_EX_GRIDLINES
 
-	if (RunTimeHelper::IsVista())
-	{
-		::SetWindowTheme(m_wndList,L"explorer",0);
-	}
+	::SetWindowTheme(m_wndList,L"explorer",0);
 
 	//Create the Columns
 	CString strAdd;
@@ -624,7 +620,7 @@ void COptionPageFileClean::OnLeavePattern()
 	{
 		//Not valid: Show Message to the user
 		CString strMsg;
-		strMsg.Format(STE_FILECLEAN_INVALIDPATTERN,TestItem.GetPattern());
+		strMsg.Format(STE_FILECLEAN_INVALIDPATTERN, static_cast<LPCTSTR>(TestItem.GetPattern()));
 		AfxMessageBox(strMsg,MB_OK | MB_ICONSTOP,0);
 
 		//Get focus back

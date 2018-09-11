@@ -261,7 +261,6 @@ BOOL ErrorListPane::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 
 		if (lParam == 1)
 		{
-			CString fmt;
 			fmt.Format(IDS_ERROR_LIST_ERRORS, errors_);
 			toolbar_.SetButtonText(0, fmt);
 			fmt.Format(IDS_ERROR_LIST_WARNINGS, warnings_);
@@ -479,7 +478,7 @@ void ErrorListPane::OnContextMenu(CWnd* pWnd, CPoint point)
 		selectedItem_.reset(new COutputInfo(oi));
 
 		CString text;
-		text.Format(fmt, CPathTool::GetFile(path));
+		text.Format(fmt, static_cast<LPCTSTR>(CPathTool::GetFile(path)));
 
 		subMenu->ModifyMenu(ID_ERROR_VIEW_SOURCE, MF_BYCOMMAND | MF_STRING, ID_ERROR_VIEW_SOURCE, text);
 

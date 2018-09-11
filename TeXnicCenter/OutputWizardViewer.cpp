@@ -36,7 +36,6 @@
 #include "resource.h"
 #include "OutputWizard.h"
 #include "OutputWizardViewer.h"
-#include "RunTimeHelper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -105,17 +104,12 @@ BOOL COutputWizardViewer::OnInitDialog()
 
 BOOL COutputWizardViewer::OnSetActive()
 {
-	if (RunTimeHelper::IsVista())
-	{
-		PropSheet_EnableWizButtons(m_hWnd,
-		                           PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
-		                           PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL);
-		PropSheet_ShowWizButtons(m_hWnd,
-		                         PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
-		                         PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_FINISH | PSWIZB_CANCEL);
-	}
-	else
-		GetWizard()->SetWizardButtons(PSWIZB_NEXT | PSWIZB_BACK);
+	PropSheet_EnableWizButtons(m_hWnd,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL);
+	PropSheet_ShowWizButtons(m_hWnd,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_CANCEL,
+		                        PSWIZB_BACK | PSWIZB_NEXT | PSWIZB_FINISH | PSWIZB_CANCEL);
 
 	//switch (GetWizard()->m_stackPageHistory.Top()) {
 	//    case COutputWizard::pageDviViewer:

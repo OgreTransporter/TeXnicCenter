@@ -58,6 +58,7 @@ BOOL CMRUStringList::ReadList()
 	ASSERT( !m_strNameFormat.IsEmpty() );
 	ASSERT( m_strNameFormat.Find( _T("%d") ) > -1 );
 
+	int i;
 	CString	strValueName;
 	CWinApp	*pApp = AfxGetApp();
 	ASSERT( pApp );
@@ -65,7 +66,7 @@ BOOL CMRUStringList::ReadList()
 		return FALSE;
 
 	// read all elements
-	for( int i = 0; i < GetSize(); i++ )
+	for( i = 0; i < GetSize(); i++ )
 	{
 		strValueName.Format( m_strNameFormat, i + 1 );
 		SetAt( i, pApp->GetProfileString( m_strSection, strValueName, _T("") ) );

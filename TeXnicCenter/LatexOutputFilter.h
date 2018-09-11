@@ -39,7 +39,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include <hash_set>
+#include <unordered_set>
 #include <stack>
 #include <cstddef>
 
@@ -99,7 +99,7 @@ class CLaTeXOutputFilter : public COutputFilter
 		}
 	};
 
-	typedef stdext::hash_set<CString, FileNameComparer> FileNameContainer;
+	typedef std::unordered_set<CString, FileNameComparer> FileNameContainer;
 
 	/// Set of all valid file names that have been encountered while parsing.
 	FileNameContainer fileNames_;

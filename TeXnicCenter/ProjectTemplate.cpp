@@ -603,9 +603,9 @@ void CProjectManager::AddProjectTemplate(CProjectTemplate* pTemplate)
 
 			while (pos != NULL)
 			{
-				CProjectTemplate* pTemplate =
+				CProjectTemplate* pTemplate0 =
 				    (CProjectTemplate*)pStaticList->GetNext(pos);
-				AddProjectTemplate(pTemplate);
+				AddProjectTemplate(pTemplate0);
 			}
 
 			delete pStaticList;
@@ -1017,8 +1017,8 @@ BOOL CProjectManager::DoPromptFileName(CString& fileName, UINT nIDSTitle,
 
 		while (pos != NULL)
 		{
-			CProjectTemplate* pTemplate = (CProjectTemplate*)m_templateList.GetNext(pos);
-			_AfxAppendFilterSuffix(strFilter, dlgFile.m_ofn, pTemplate,
+			CProjectTemplate* pTemplate0 = (CProjectTemplate*)m_templateList.GetNext(pos);
+			_AfxAppendFilterSuffix(strFilter, dlgFile.m_ofn, pTemplate0,
 			                       bFirst ? &strDefault : NULL);
 			bFirst = FALSE;
 		}

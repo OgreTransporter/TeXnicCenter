@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2017
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TeXnicCenter", "TeXnicCenter\TeXnicCenter.vcxproj", "{7795423E-417E-4C41-A629-11EFD0EBF8AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12243F23-547E-4676-A36D-7DE0EE131354} = {12243F23-547E-4676-A36D-7DE0EE131354}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InterfaceWrapper", "InterfaceWrapper\source\InterfaceWrapper.vcxproj", "{884A5C93-0BE0-42E0-A688-DDC80C53DF48}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCExt", "MFCExt\Source\MFCExt.vcxproj", "{049FFAEF-6751-42F1-B069-DB51BD24911B}"
@@ -8,11 +13,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MSXMLCPP", "MSXMLCpp\source\MSXMLCPP.vcxproj", "{5E77A852-5E2B-4E6B-B57F-70676F473C93}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Documentation", "TCHelp\SourceCodeDoc\TXCDocumentation.vcxproj", "{6A2C0D58-A215-42E0-B4B6-2151467D772A}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TeXnicCenter", "TeXnicCenter\TeXnicCenter.vcxproj", "{7795423E-417E-4C41-A629-11EFD0EBF8AD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{12243F23-547E-4676-A36D-7DE0EE131354} = {12243F23-547E-4676-A36D-7DE0EE131354}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TeXnicCenterObjects", "TeXnicCenterObjects\Source\TeXnicCenterObjects.vcxproj", "{7D010430-948A-4400-85C4-7D18CB92068F}"
 EndProject
