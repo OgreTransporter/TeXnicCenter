@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="Dictionaries\af_ZA\af_ZA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\af_ZA\af_ZA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\an_ES\an_ES.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\an_ES\an_ES.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ar\ar.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ar\ar.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\be_BY\be_BY.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\be_BY\be_BY.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bg_BG\bg_BG.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bg_BG\bg_BG.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bn_BD\bn_BD.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bn_BD\bn_BD.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bo\bo.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bo\bo.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\br_FR\br_FR.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\br_FR\br_FR.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bs_BA\bs_BA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bs_BA\bs_BA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\cs_CZ\cs_CZ.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\cs_CZ\cs_CZ.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\da_DK\da_DK.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\da_DK\da_DK.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_AT_frami.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_AT_frami.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_CH_frami.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_CH_frami.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_DE_frami.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_DE_frami.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\el_GR\el_GR.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\el_GR\el_GR.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_AU.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_AU.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_CA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_CA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_GB.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_GB.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_US.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_US.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_ZA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_ZA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\es\es_ANY.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\es\es_ANY.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\et_EE\et_EE.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\et_EE\et_EE.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\fr_FR\fr.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\fr_FR\fr.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gd_GB\gd_GB.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gd_GB\gd_GB.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gl\gl_ES.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gl\gl_ES.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gu_IN\gu_IN.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gu_IN\gu_IN.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\he_IL\he_IL.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\he_IL\he_IL.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hi_IN\hi_IN.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hi_IN\hi_IN.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hr_HR\hr_HR.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hr_HR\hr_HR.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hu_HU\hu_HU.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hu_HU\hu_HU.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\id\id_ID.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\id\id_ID.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\is\is.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\is\is.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\it_IT\it_IT.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\it_IT\it_IT.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\kmr_Latn\kmr_Latn.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\kmr_Latn\kmr_Latn.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lo_LA\lo_LA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lo_LA\lo_LA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lt_LT\lt.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lt_LT\lt.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lv_LV\lv_LV.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lv_LV\lv_LV.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ne_NP\ne_NP.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ne_NP\ne_NP.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\nl_NL\nl_NL.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\nl_NL\nl_NL.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nb_NO.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nb_NO.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nn_NO.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nn_NO.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\oc_FR\oc_FR.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\oc_FR\oc_FR.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pl_PL\pl_PL.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pl_PL\pl_PL.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_BR\pt_BR.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_BR\pt_BR.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_PT\pt_PT.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_PT\pt_PT.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ro\ro_RO.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ro\ro_RO.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ru_RU\ru_RU.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ru_RU\ru_RU.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\si_LK\si_LK.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\si_LK\si_LK.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sk_SK\sk_SK.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sk_SK\sk_SK.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sl_SI\sl_SI.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sl_SI\sl_SI.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sq_AL\sq_AL.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sq_AL\sq_AL.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr-Latn.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr-Latn.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_FI.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_FI.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_SE.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_SE.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sw_TZ\sw_TZ.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sw_TZ\sw_TZ.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\te_IN\te_IN.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\te_IN\te_IN.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\th_TH\th_TH.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\th_TH\th_TH.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\uk_UA\uk_UA.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\uk_UA\uk_UA.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\vi\vi_VN.aff">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\vi\vi_VN.dic">
+      <Filter>Dictionaries</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dictionaries">
+      <UniqueIdentifier>{5f4cbb65-6dd0-4f21-9762-1e878545195a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

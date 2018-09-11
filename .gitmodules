@@ -1,3 +1,9 @@
 [submodule "3rdparty/libiconv"]
 	path = 3rdparty/libiconv
 	url = https://git.savannah.gnu.org/git/libiconv.git
+[submodule "3rdparty/Hunspell"]
+	path = 3rdparty/Hunspell
+	url = https://github.com/hunspell/hunspell.git
+[submodule "3rdparty/Dictionaries"]
+	path = 3rdparty/Dictionaries
+	url = https://anongit.freedesktop.org/git/libreoffice/dictionaries.git

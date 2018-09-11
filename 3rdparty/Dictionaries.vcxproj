@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8BCF7B96-863C-43BE-9B8A-84B8AAB304C7}</ProjectGuid>
+    <RootNamespace>Dictionaries</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir>$(SolutionDir)\Output\Product\$(Platform)\$(Configuration)\Dictionaries\</OutDir>
+    <IntDir>$(SolutionDir)\Output\Intermediate\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <ExtensionsToDeleteOnClean>*.dic;*.aff</ExtensionsToDeleteOnClean>
+  </PropertyGroup>
+  <ItemGroup>
+    <CustomBuild Include="Dictionaries\af_ZA\af_ZA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)af_ZA%(Extension)"</Command>
+      <Outputs>$(OutDir)af_ZA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\af_ZA\af_ZA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)af_ZA%(Extension)"</Command>
+      <Outputs>$(OutDir)af_ZA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\an_ES\an_ES.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)an_ES%(Extension)"</Command>
+      <Outputs>$(OutDir)an_ES%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\an_ES\an_ES.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)an_ES%(Extension)"</Command>
+      <Outputs>$(OutDir)an_ES%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ar\ar.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ar_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)ar_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ar\ar.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ar_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)ar_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\be_BY\be_BY.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)be_BY%(Extension)"</Command>
+      <Outputs>$(OutDir)be_BY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\be_BY\be_BY.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)be_BY%(Extension)"</Command>
+      <Outputs>$(OutDir)be_BY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bg_BG\bg_BG.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bg_BG%(Extension)"</Command>
+      <Outputs>$(OutDir)bg_BG%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bg_BG\bg_BG.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bg_BG%(Extension)"</Command>
+      <Outputs>$(OutDir)bg_BG%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bn_BD\bn_BD.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bn_BD%(Extension)"</Command>
+      <Outputs>$(OutDir)bn_BD%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bn_BD\bn_BD.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bn_BD%(Extension)"</Command>
+      <Outputs>$(OutDir)bn_BD%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bo\bo.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bo_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)bo_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bo\bo.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bo_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)bo_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\br_FR\br_FR.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)br_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)br_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\br_FR\br_FR.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)br_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)br_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bs_BA\bs_BA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bs_BA%(Extension)"</Command>
+      <Outputs>$(OutDir)bs_BA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\bs_BA\bs_BA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)bs_BA%(Extension)"</Command>
+      <Outputs>$(OutDir)bs_BA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\cs_CZ\cs_CZ.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)cs_CZ%(Extension)"</Command>
+      <Outputs>$(OutDir)cs_CZ%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\cs_CZ\cs_CZ.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)cs_CZ%(Extension)"</Command>
+      <Outputs>$(OutDir)cs_CZ%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\da_DK\da_DK.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)da_DK%(Extension)"</Command>
+      <Outputs>$(OutDir)da_DK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\da_DK\da_DK.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)da_DK%(Extension)"</Command>
+      <Outputs>$(OutDir)da_DK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_AT_frami.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_AT%(Extension)"</Command>
+      <Outputs>$(OutDir)de_AT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_AT_frami.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_AT%(Extension)"</Command>
+      <Outputs>$(OutDir)de_AT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_CH_frami.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_CH%(Extension)"</Command>
+      <Outputs>$(OutDir)de_CH%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_CH_frami.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_CH%(Extension)"</Command>
+      <Outputs>$(OutDir)de_CH%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_DE_frami.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_DE%(Extension)"</Command>
+      <Outputs>$(OutDir)de_DE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\de\de_DE_frami.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)de_DE%(Extension)"</Command>
+      <Outputs>$(OutDir)de_DE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\el_GR\el_GR.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)el_GR%(Extension)"</Command>
+      <Outputs>$(OutDir)el_GR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\el_GR\el_GR.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)el_GR%(Extension)"</Command>
+      <Outputs>$(OutDir)el_GR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_AU.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_AU%(Extension)"</Command>
+      <Outputs>$(OutDir)en_AU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_AU.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_AU%(Extension)"</Command>
+      <Outputs>$(OutDir)en_AU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_CA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_CA%(Extension)"</Command>
+      <Outputs>$(OutDir)en_CA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_CA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_CA%(Extension)"</Command>
+      <Outputs>$(OutDir)en_CA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_GB.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_GB%(Extension)"</Command>
+      <Outputs>$(OutDir)en_GB%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_GB.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_GB%(Extension)"</Command>
+      <Outputs>$(OutDir)en_GB%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_US.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_US%(Extension)"</Command>
+      <Outputs>$(OutDir)en_US%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_US.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_US%(Extension)"</Command>
+      <Outputs>$(OutDir)en_US%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_ZA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_ZA%(Extension)"</Command>
+      <Outputs>$(OutDir)en_ZA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\en\en_ZA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)en_ZA%(Extension)"</Command>
+      <Outputs>$(OutDir)en_ZA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\es\es_ANY.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)es_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)es_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\es\es_ANY.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)es_ANY%(Extension)"</Command>
+      <Outputs>$(OutDir)es_ANY%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\et_EE\et_EE.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)et_EE%(Extension)"</Command>
+      <Outputs>$(OutDir)et_EE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\et_EE\et_EE.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)et_EE%(Extension)"</Command>
+      <Outputs>$(OutDir)et_EE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\fr_FR\fr.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)fr_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)fr_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\fr_FR\fr.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)fr_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)fr_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gd_GB\gd_GB.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gd_GB%(Extension)"</Command>
+      <Outputs>$(OutDir)gd_GB%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gd_GB\gd_GB.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gd_GB%(Extension)"</Command>
+      <Outputs>$(OutDir)gd_GB%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gl\gl_ES.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gl_ES%(Extension)"</Command>
+      <Outputs>$(OutDir)gl_ES%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gl\gl_ES.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gl_ES%(Extension)"</Command>
+      <Outputs>$(OutDir)gl_ES%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gu_IN\gu_IN.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gu_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)gu_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\gu_IN\gu_IN.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)gu_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)gu_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\he_IL\he_IL.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)he_IL%(Extension)"</Command>
+      <Outputs>$(OutDir)he_IL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\he_IL\he_IL.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)he_IL%(Extension)"</Command>
+      <Outputs>$(OutDir)he_IL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hi_IN\hi_IN.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hi_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)hi_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hi_IN\hi_IN.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hi_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)hi_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hr_HR\hr_HR.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hr_HR%(Extension)"</Command>
+      <Outputs>$(OutDir)hr_HR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hr_HR\hr_HR.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hr_HR%(Extension)"</Command>
+      <Outputs>$(OutDir)hr_HR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hu_HU\hu_HU.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hu_HU%(Extension)"</Command>
+      <Outputs>$(OutDir)hu_HU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\hu_HU\hu_HU.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)hu_HU%(Extension)"</Command>
+      <Outputs>$(OutDir)hu_HU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\id\id_ID.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)id_ID%(Extension)"</Command>
+      <Outputs>$(OutDir)id_ID%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\id\id_ID.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)id_ID%(Extension)"</Command>
+      <Outputs>$(OutDir)id_ID%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\is\is.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)is_IS%(Extension)"</Command>
+      <Outputs>$(OutDir)is_IS%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\is\is.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)is_IS%(Extension)"</Command>
+      <Outputs>$(OutDir)is_IS%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\it_IT\it_IT.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)it_IT%(Extension)"</Command>
+      <Outputs>$(OutDir)it_IT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\it_IT\it_IT.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)it_IT%(Extension)"</Command>
+      <Outputs>$(OutDir)it_IT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\kmr_Latn\kmr_Latn.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)kmr_Latn%(Extension)"</Command>
+      <Outputs>$(OutDir)kmr_Latn%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\kmr_Latn\kmr_Latn.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)kmr_Latn%(Extension)"</Command>
+      <Outputs>$(OutDir)kmr_Latn%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lo_LA\lo_LA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lo_LA%(Extension)"</Command>
+      <Outputs>$(OutDir)lo_LA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lo_LA\lo_LA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lo_LA%(Extension)"</Command>
+      <Outputs>$(OutDir)lo_LA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lt_LT\lt.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lt_LT%(Extension)"</Command>
+      <Outputs>$(OutDir)lt_LT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lt_LT\lt.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lt_LT%(Extension)"</Command>
+      <Outputs>$(OutDir)lt_LT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lv_LV\lv_LV.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lv_LV%(Extension)"</Command>
+      <Outputs>$(OutDir)lv_LV%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\lv_LV\lv_LV.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)lv_LV%(Extension)"</Command>
+      <Outputs>$(OutDir)lv_LV%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ne_NP\ne_NP.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ne_NP%(Extension)"</Command>
+      <Outputs>$(OutDir)ne_NP%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ne_NP\ne_NP.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ne_NP%(Extension)"</Command>
+      <Outputs>$(OutDir)ne_NP%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\nl_NL\nl_NL.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nl_NL%(Extension)"</Command>
+      <Outputs>$(OutDir)nl_NL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\nl_NL\nl_NL.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nl_NL%(Extension)"</Command>
+      <Outputs>$(OutDir)nl_NL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nb_NO.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nb_NO%(Extension)"</Command>
+      <Outputs>$(OutDir)nb_NO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nb_NO.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nb_NO%(Extension)"</Command>
+      <Outputs>$(OutDir)nb_NO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nn_NO.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nn_NO%(Extension)"</Command>
+      <Outputs>$(OutDir)nn_NO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\no\nn_NO.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)nn_NO%(Extension)"</Command>
+      <Outputs>$(OutDir)nn_NO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\oc_FR\oc_FR.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)oc_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)oc_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\oc_FR\oc_FR.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)oc_FR%(Extension)"</Command>
+      <Outputs>$(OutDir)oc_FR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pl_PL\pl_PL.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pl_PL%(Extension)"</Command>
+      <Outputs>$(OutDir)pl_PL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pl_PL\pl_PL.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pl_PL%(Extension)"</Command>
+      <Outputs>$(OutDir)pl_PL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_BR\pt_BR.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pt_BR%(Extension)"</Command>
+      <Outputs>$(OutDir)pt_BR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_BR\pt_BR.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pt_BR%(Extension)"</Command>
+      <Outputs>$(OutDir)pt_BR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_PT\pt_PT.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pt_PT%(Extension)"</Command>
+      <Outputs>$(OutDir)pt_PT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\pt_PT\pt_PT.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)pt_PT%(Extension)"</Command>
+      <Outputs>$(OutDir)pt_PT%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ro\ro_RO.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ro_RO%(Extension)"</Command>
+      <Outputs>$(OutDir)ro_RO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ro\ro_RO.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ro_RO%(Extension)"</Command>
+      <Outputs>$(OutDir)ro_RO%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ru_RU\ru_RU.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ru_RU%(Extension)"</Command>
+      <Outputs>$(OutDir)ru_RU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\ru_RU\ru_RU.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)ru_RU%(Extension)"</Command>
+      <Outputs>$(OutDir)ru_RU%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\si_LK\si_LK.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)si_LK%(Extension)"</Command>
+      <Outputs>$(OutDir)si_LK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\si_LK\si_LK.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)si_LK%(Extension)"</Command>
+      <Outputs>$(OutDir)si_LK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sk_SK\sk_SK.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sk_SK%(Extension)"</Command>
+      <Outputs>$(OutDir)sk_SK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sk_SK\sk_SK.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sk_SK%(Extension)"</Command>
+      <Outputs>$(OutDir)sk_SK%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sl_SI\sl_SI.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sl_SI%(Extension)"</Command>
+      <Outputs>$(OutDir)sl_SI%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sl_SI\sl_SI.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sl_SI%(Extension)"</Command>
+      <Outputs>$(OutDir)sl_SI%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sq_AL\sq_AL.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sq_AL%(Extension)"</Command>
+      <Outputs>$(OutDir)sq_AL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sq_AL\sq_AL.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sq_AL%(Extension)"</Command>
+      <Outputs>$(OutDir)sq_AL%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr-Latn.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sr_Latn%(Extension)"</Command>
+      <Outputs>$(OutDir)sr_Latn%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr-Latn.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sr_Latn%(Extension)"</Command>
+      <Outputs>$(OutDir)sr_Latn%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sr_SR%(Extension)"</Command>
+      <Outputs>$(OutDir)sr_SR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sr\sr.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sr_SR%(Extension)"</Command>
+      <Outputs>$(OutDir)sr_SR%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_FI.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sv_FI%(Extension)"</Command>
+      <Outputs>$(OutDir)sv_FI%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_FI.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sv_FI%(Extension)"</Command>
+      <Outputs>$(OutDir)sv_FI%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_SE.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sv_SE%(Extension)"</Command>
+      <Outputs>$(OutDir)sv_SE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sv_SE\sv_SE.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sv_SE%(Extension)"</Command>
+      <Outputs>$(OutDir)sv_SE%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sw_TZ\sw_TZ.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sw_TZ%(Extension)"</Command>
+      <Outputs>$(OutDir)sw_TZ%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\sw_TZ\sw_TZ.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)sw_TZ%(Extension)"</Command>
+      <Outputs>$(OutDir)sw_TZ%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\te_IN\te_IN.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)te_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)te_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\te_IN\te_IN.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)te_IN%(Extension)"</Command>
+      <Outputs>$(OutDir)te_IN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\th_TH\th_TH.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)th_TH%(Extension)"</Command>
+      <Outputs>$(OutDir)th_TH%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\th_TH\th_TH.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)th_TH%(Extension)"</Command>
+      <Outputs>$(OutDir)th_TH%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\uk_UA\uk_UA.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)uk_UA%(Extension)"</Command>
+      <Outputs>$(OutDir)uk_UA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\uk_UA\uk_UA.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)uk_UA%(Extension)"</Command>
+      <Outputs>$(OutDir)uk_UA%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\vi\vi_VN.aff">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)vi_VN%(Extension)"</Command>
+      <Outputs>$(OutDir)vi_VN%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Dictionaries\vi\vi_VN.dic">
+      <FileType>Document</FileType>
+      <Message>Copying File %(Filename)%(Extension) ...</Message>
+      <Command>copy /y "%(FullPath)" "$(OutDir)vi_VN%(Extension)"</Command>
+      <Outputs>$(OutDir)vi_VN%(Extension)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

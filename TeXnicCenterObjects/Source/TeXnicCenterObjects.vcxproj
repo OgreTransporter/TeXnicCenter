@@ -82,7 +82,6 @@
       <Message>Building type library...</Message>
       <Command>midl /client none /server none /win32 TeXnicCenterObjects.idl
 xcopy /y /f TeXnicCenterObjects.tlb "$(OutDir)"
-xcopy /f TeXnicCenterObjects.tlb "$(OutDir)"
 del TeXnicCenterObjects.tlb
 </Command>
       <Outputs>$(OutDir)TeXnicCenterObjects.tlb;%(Outputs)</Outputs>
@@ -114,7 +113,6 @@ del TeXnicCenterObjects.tlb
       <Message>Building type library...</Message>
       <Command>midl /client none /server none /win32 TeXnicCenterObjects.idl
 xcopy /y /f TeXnicCenterObjects.tlb "$(OutDir)"
-xcopy /f TeXnicCenterObjects.tlb "$(OutDir)"
 del TeXnicCenterObjects.tlb
 </Command>
       <Outputs>$(OutDir)TeXnicCenterObjects.tlb;%(Outputs)</Outputs>
@@ -149,7 +147,6 @@ del TeXnicCenterObjects.tlb
       <Message>Building type library...</Message>
       <Command>midl /client none /server none /win32 TeXnicCenterObjects.idl
 xcopy /y /f TeXnicCenterObjects.tlb "$(OutDir)"
-xcopy /f TeXnicCenterObjects.tlb "$(OutDir)"
 del TeXnicCenterObjects.tlb
 </Command>
       <Outputs>$(OutDir)TeXnicCenterObjects.tlb;%(Outputs)</Outputs>
@@ -179,7 +176,6 @@ del TeXnicCenterObjects.tlb
       <Message>Building type library...</Message>
       <Command>midl /client none /server none /win32 TeXnicCenterObjects.idl
 xcopy /y /f TeXnicCenterObjects.tlb "$(OutDir)"
-xcopy /f TeXnicCenterObjects.tlb "$(OutDir)"
 del TeXnicCenterObjects.tlb
 </Command>
       <Outputs>$(OutDir)TeXnicCenterObjects.tlb;%(Outputs)</Outputs>

@@ -22,11 +22,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TxcResDeutsch", "TeXnicCent
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TxcResEnglish", "TeXnicCenter\TxcEnglish.vcxproj", "{08362FD8-04F1-4366-BF4D-31A7707944B9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hunspell", "Hunspell\src\win_api\libhunspell.vcxproj", "{53609BB3-D874-465C-AF7B-DF626DB0D89B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hunspell", "3rdparty\libhunspell.vcxproj", "{53609BB3-D874-465C-AF7B-DF626DB0D89B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TXCUserHelp", "TCHelp\TXCUserHelp.vcxproj", "{12243F23-547E-4676-A36D-7DE0EE131354}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dictionaries", "Dictionaries\Dictionaries.vcxproj", "{8BCF7B96-863C-43BE-9B8A-84B8AAB304C7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dictionaries", "3rdparty\Dictionaries.vcxproj", "{8BCF7B96-863C-43BE-9B8A-84B8AAB304C7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libiconv", "3rdparty\libiconv.vcxproj", "{D316722D-FFED-44C6-A643-830BC2F521B4}"
 EndProject

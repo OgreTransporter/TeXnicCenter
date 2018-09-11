@@ -87,7 +87,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -125,7 +125,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -161,7 +161,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -197,7 +197,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -732,11 +732,11 @@
     </ResourceCompile>
   </ItemGroup>
    <ItemGroup>
-    <ProjectReference Include="..\Dictionaries\Dictionaries.vcxproj">
+    <ProjectReference Include="..\3rdparty\Dictionaries.vcxproj">
       <Project>{8bcf7b96-863c-43be-9b8a-84b8aab304c7}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-    <ProjectReference Include="..\Hunspell\src\win_api\libhunspell.vcxproj">
+    <ProjectReference Include="..\3rdparty\libhunspell.vcxproj">
       <Project>{53609bb3-d874-465c-af7b-df626db0d89b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\InterfaceWrapper\source\InterfaceWrapper.vcxproj">
