@@ -28,7 +28,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TXCUserHelp", "TCHelp\TXCUs
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dictionaries", "Dictionaries\Dictionaries.vcxproj", "{8BCF7B96-863C-43BE-9B8A-84B8AAB304C7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libiconv", "libiconv\libiconv.vcxproj", "{D316722D-FFED-44C6-A643-830BC2F521B4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libiconv", "3rdparty\libiconv.vcxproj", "{D316722D-FFED-44C6-A643-830BC2F521B4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SciLexer", "Scintilla\vcbuild\SciLexer.vcxproj", "{08C13851-869A-49A9-BC48-CBD0779A2280}"
 EndProject

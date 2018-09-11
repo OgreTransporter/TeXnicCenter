@@ -742,7 +742,7 @@
     <ProjectReference Include="..\InterfaceWrapper\source\InterfaceWrapper.vcxproj">
       <Project>{884a5c93-0be0-42e0-a688-ddc80c53df48}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\libiconv\libiconv.vcxproj">
+    <ProjectReference Include="..\3rdparty\libiconv.vcxproj">
       <Project>{d316722d-ffed-44c6-a643-830bc2f521b4}</Project>
     </ProjectReference>
     <ProjectReference Include="..\MFCExt\Source\MFCExt.vcxproj">
