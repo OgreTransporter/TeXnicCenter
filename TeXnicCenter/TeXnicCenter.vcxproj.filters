@@ -491,6 +491,9 @@
     <ClCompile Include="Matlab.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileZip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aboutbox.h">
@@ -1001,6 +1004,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Matlab.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileZip.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

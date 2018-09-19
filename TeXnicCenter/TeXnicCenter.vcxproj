@@ -87,8 +87,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;$(SolutionDir)/3rdparty/zlib;$(SolutionDir)/3rdparty/zlib/contrib/minizip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -131,8 +131,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;$(SolutionDir)/3rdparty/zlib;$(SolutionDir)/3rdparty/zlib/contrib/minizip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_BIND_TO_CURRENT_VCLIBS_VERSION;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -173,8 +173,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;$(SolutionDir)/3rdparty/zlib;$(SolutionDir)/3rdparty/zlib/contrib/minizip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;STRICT;WIN32;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -215,8 +215,8 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/3rdparty/Hunspell/src/hunspell;$(SolutionDir)/Scintilla/include;$(SolutionDir)/MFCExt/Include;$(SolutionDir)/TeXnicCenterObjects/Include;$(SolutionDir)/MsXmlCpp/Include;$(SolutionDir)/3rdparty/zlib;$(SolutionDir)/3rdparty/zlib/contrib/minizip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;STRICT;WIN64;_WINDOWS;CE_FROM_DLL;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;HUNSPELL_STATIC;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;_BIND_TO_CURRENT_VCLIBS_VERSION;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -288,6 +288,7 @@
     <ClCompile Include="FileTreeCtrl.cpp" />
     <ClCompile Include="FileViewEx.cpp" />
     <ClCompile Include="FileViewPane.cpp" />
+    <ClCompile Include="FileZip.cpp" />
     <ClCompile Include="findinfilesdialog.cpp" />
     <ClCompile Include="FindReplaceDlg.cpp" />
     <ClCompile Include="FontOccManager.cpp" />
@@ -453,6 +454,7 @@
     <ClInclude Include="FileTreeCtrl.h" />
     <ClInclude Include="FileViewEx.h" />
     <ClInclude Include="FileViewPane.h" />
+    <ClInclude Include="FileZip.h" />
     <ClInclude Include="findinfilesdialog.h" />
     <ClInclude Include="FindReplaceDlg.h" />
     <ClInclude Include="FontOccManager.h" />
@@ -761,6 +763,9 @@
     </ProjectReference>
     <ProjectReference Include="..\3rdparty\libhunspell.vcxproj">
       <Project>{53609bb3-d874-465c-af7b-df626db0d89b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\3rdparty\zlib.vcxproj">
+      <Project>{362b13ca-91de-4b84-8030-2c9a0dfb3a4b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\InterfaceWrapper\source\InterfaceWrapper.vcxproj">
       <Project>{884a5c93-0be0-42e0-a688-ddc80c53df48}</Project>

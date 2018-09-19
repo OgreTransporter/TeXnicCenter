@@ -10,3 +10,6 @@
 [submodule "3rdparty/matlab2tikz"]
 	path = 3rdparty/matlab2tikz
 	url = https://github.com/matlab2tikz/matlab2tikz.git
+[submodule "3rdparty/zlib"]
+	path = 3rdparty/zlib
+	url = https://github.com/madler/zlib.git
