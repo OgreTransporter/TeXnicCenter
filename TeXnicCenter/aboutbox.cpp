@@ -83,7 +83,7 @@ const TCHAR DISPLAY_BITMAP      = _T('\b');
 // (see #defines above)
 LPCTSTR const pArrCredit[] =
 {
-	_T("Copyright © 1999-2013 The TeXnicCenter Team\t"),
+	_T("Copyright © 1999-2018 The TeXnicCenter Team\t"),
 	_T("www.TeXnicCenter.org\t"),
 	_T(""),
 	_T(""),
@@ -126,7 +126,7 @@ LPCTSTR const pArrCredit[] =
 	_T("Loïc d'Anterroches, Stefan Ascher, Adam Clauss, Michael Dunn\f"),
 	_T("Raffi Enficiaud, Mark Findlay, Chris Norris, Stephan Schrader, Paul Selormey\f"),
 	_T("Martin Stanek, Alexander Täschner, Pavel Vacha, Christian Welzel\f"),
-	_T(""),
+	_T("Transporter\f"),
 	_T(""),
 	_T("IDB_SEPARATOR\b"),
 	_T(""),
@@ -206,7 +206,7 @@ CAboutDlg::CAboutDlg()
 	else
 	{
 		m_strVersion = _T("Unknown");
-		CopyrightText = _T("(c) 1999-2013 The TeXnicCenter Team");
+		CopyrightText = _T("(c) 1999-2018 The TeXnicCenter Team");
 	}
 
 	//Add 32-bit or 64-bit to the version info. That is good for error reports.
