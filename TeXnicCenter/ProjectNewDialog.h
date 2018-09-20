@@ -213,6 +213,61 @@ private:
 };
 
 /**
+Represents a multi file based template for the project new dialog.
+
+A multi file based template simply provides a file for the project's main
+file and several additional files.
+
+@see CProjectNewDialog
+
+@author Transporter
+ */
+class CMultiFileBasedProjectTemplateItem : public CProjectTemplateItem
+{
+	DECLARE_DYNCREATE(CMultiFileBasedProjectTemplateItem);
+
+	// construction/destruction
+public:
+	CMultiFileBasedProjectTemplateItem();
+
+	// overridings
+public:
+	BOOL InitItem(LPCTSTR lpszPath, CImageList &ImageList32, CImageList &ImageList16);
+	const CString GetTitle() const;
+	const CString GetDescription() const;
+	int GetImageIndex() const;
+	BOOL InitProject(CLaTeXProject *pProject, LPCTSTR lpszCr);
+
+	// implementation helpers
+protected:
+	/**
+	Copies the specified source file to the specified destination file
+	whereby any leading description lines in the source will be skipped
+	and the line feeds will be translated.
+
+	@param lpszTargetPath
+			Path, m_strPath should be copied to.
+	@param lpszCrLf
+			String to use as line feed.
+	 */
+	BOOL CreateMainFile(LPCTSTR lpszTargetPath, LPCTSTR lpszCrLf);
+
+	// attributes
+private:
+	/** the full path of the template file */
+	CString m_strPath;
+
+	/** the title */
+	CString m_strTitle;
+
+	/** the description */
+	CString m_strDescription;
+
+	/** the index to the image list */
+	int m_nImageIndex;
+};
+
+/**
 Dialog for creating a new project based on a template or a wizard.
 
 @ingroup dialogs
@@ -226,13 +281,6 @@ public:
 	CProjectNewDialog(CWnd* pParent = NULL);
 	virtual ~CProjectNewDialog();
 
-
-// implementation helpers
-protected:
-	/**
-	Creates the full path to the specified directory.
-	 */
-	BOOL CreateDirectoryRecursive(LPCTSTR lpszDirectory);
 
 // overridings
 protected:

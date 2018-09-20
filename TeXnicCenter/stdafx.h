@@ -82,6 +82,15 @@ namespace Interfaces
 	#include <TeXnicCenterObjects.h>
 }
 
+namespace std
+{
+#if defined(UNICODE) || defined(_UNICODE)
+#define tstring wstring
+#else
+#define tstring string
+#endif
+}
+
 #include <regex>
 
 typedef std::tr1::basic_regex<TCHAR> tregex;

@@ -438,6 +438,24 @@ BOOL CPathTool::IsRelativePath( LPCTSTR lpszPath )
 	return (GetDrive(lpszPath).GetLength() == 0);
 }
 
+BOOL CPathTool::CreateDirectoryRecursive(LPCTSTR lpszDirectory)
+{
+	if (lpszDirectory == NULL) return FALSE;
+	if (lpszDirectory[0] == _T('\0')) return FALSE;
+
+	if (IsDirectory(lpszDirectory))
+		return TRUE;
+
+	CString strParent = GetParentDirectory(lpszDirectory);
+	if (!IsDirectory(strParent))
+	{
+		if (!CreateDirectoryRecursive(strParent))
+			return FALSE;
+	}
+
+	return CreateDirectory(lpszDirectory, NULL);
+}
+
 CString CPathTool::GetTempFileName(LPCTSTR lpPathName, LPCTSTR lpPrefixString, UINT uUnique)
 {
 	CString fileName;

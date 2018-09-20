@@ -41,6 +41,7 @@
 #include "CodeDocument.h"
 #include "TeXnicCenter.h"
 #include "textsourcefile.h"
+#include "FileZip.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -252,6 +253,122 @@ BOOL CFileBasedProjectTemplateItem::CreateMainFile(LPCTSTR lpszTargetPath, LPCTS
 
 
 //-------------------------------------------------------------------
+// CFileBasedProjectTemplateItem
+//-------------------------------------------------------------------
+
+IMPLEMENT_DYNCREATE(CMultiFileBasedProjectTemplateItem, CObject);
+
+CMultiFileBasedProjectTemplateItem::CMultiFileBasedProjectTemplateItem()
+	: CProjectTemplateItem(),
+	m_nImageIndex(-1)
+{
+}
+
+BOOL CMultiFileBasedProjectTemplateItem::InitItem(LPCTSTR lpszPath, CImageList &ImageList32, CImageList &ImageList16)
+{
+	m_strPath = lpszPath;
+	FileZip zip(lpszPath);
+
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//extract description, if available
+	m_strDescription = zip.GetGlobalComment();
+	if (m_strDescription.GetLength() == 0)
+	{
+		m_strDescription = zip.GetFileComment(CPathTool::GetFileTitle(m_strPath) + _T(".tex"));
+		if (m_strDescription.GetLength() == 0)
+		{
+			CString TextFile = zip.ExtractFile2String(CPathTool::GetFileTitle(m_strPath) + _T(".tex"));
+			if (TextFile.GetLength() > 0)
+			{
+				CString strKey(_T("%DESCRIPTION: "));
+				int nTokenPos = 0;
+				CString strToken = TextFile.Tokenize(_T("\n"), nTokenPos);
+				while (!strToken.IsEmpty())
+				{
+					if (_tcsncicmp(strToken.GetBuffer(), strKey.GetBuffer(), strKey.GetLength()) == 0)
+					{
+						m_strDescription = strToken.Mid(strKey.GetLength()).Trim();
+						break;
+					}
+					strToken = TextFile.Tokenize(_T("\n"), nTokenPos);
+				}
+			}
+		}
+	}
+
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//generate title
+	m_strTitle = CPathTool::GetFileTitle(m_strPath);
+
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//add image to image list and remember index
+	HICON hIcon = theApp.LoadIcon(IDR_LATEXDOCTYPE);
+	m_nImageIndex = hIcon ? ImageList32.Add(hIcon) : -1;
+	ImageList16.Add(hIcon);
+
+	return TRUE;
+}
+
+const CString CMultiFileBasedProjectTemplateItem::GetTitle() const
+{
+	return m_strTitle;
+}
+
+const CString CMultiFileBasedProjectTemplateItem::GetDescription() const
+{
+	return m_strDescription;
+}
+
+int CMultiFileBasedProjectTemplateItem::GetImageIndex() const
+{
+	return m_nImageIndex;
+}
+
+BOOL CMultiFileBasedProjectTemplateItem::InitProject(CLaTeXProject *pProject, LPCTSTR lpszCr)
+{
+	CString strTargetPath(pProject->GetMainPath());
+	pProject->SetRunMakeIndex(TRUE);
+
+	if (CPathTool::Exists(strTargetPath))
+	{
+		CString strMessage;
+		strMessage.Format(STE_PROJECT_MAINFILEEXISTS, static_cast<LPCTSTR>(strTargetPath));
+		if (AfxMessageBox(strMessage, MB_ICONWARNING | MB_YESNO) == IDNO)
+		{
+			if (AfxMessageBox(STE_PROJECT_USEEXISTINGFILE, MB_ICONQUESTION | MB_YESNO) == IDNO)
+				return FALSE;
+			else
+				return TRUE;
+		}
+	}
+
+	if (!CreateMainFile(strTargetPath, lpszCr))
+	{
+		AfxMessageBox(STE_PROJECT_CANNOTCREATEMAINFILE, MB_ICONSTOP | MB_OK);
+		return FALSE;
+	}
+
+	FileZip zip(m_strPath);
+	FileZip::FileList files = zip.GetFiles();
+	CString strMainFile = CPathTool::GetFileTitle(m_strPath) + _T(".tex");
+	CString strOutputFolder = CPathTool::GetDirectory(strTargetPath);
+	for (size_t uj = 0; uj < files.size(); uj++)
+	{
+		if (files[uj] == strMainFile) continue;
+		if (CPathTool::GetFileExtension(files[uj]) == _T("bib")) pProject->SetRunBibTex(TRUE);
+		zip.ExtractFile(files[uj], strOutputFolder, true);
+	}
+	return TRUE;
+}
+
+BOOL CMultiFileBasedProjectTemplateItem::CreateMainFile(LPCTSTR lpszTargetPath, LPCTSTR lpszCrLf)
+{
+	FileZip zip(m_strPath);
+	return (zip.ExtractFile(CPathTool::GetFileTitle(m_strPath) + _T(".tex"), lpszTargetPath, false) == 0) ? TRUE : FALSE;
+}
+
+
+//-------------------------------------------------------------------
 // CWizardBasedProjectTemplateItem
 //-------------------------------------------------------------------
 
@@ -408,24 +525,6 @@ void CProjectNewDialog::UpdateControlStates()
 	m_wndOkButton.EnableWindow(!m_strProjectName.IsEmpty() && !m_strProjectPath.IsEmpty() && GetSelectedItem() > -1);
 }
 
-BOOL CProjectNewDialog::CreateDirectoryRecursive(LPCTSTR lpszDirectory)
-{
-	if (lpszDirectory == NULL) return FALSE;
-	if (lpszDirectory[0] == _T('\0')) return FALSE;
-
-	if (CPathTool::IsDirectory(lpszDirectory))
-		return TRUE;
-
-	CString strParent = CPathTool::GetParentDirectory(lpszDirectory);
-	if (!CPathTool::IsDirectory(strParent))
-	{
-		if (!CreateDirectoryRecursive(strParent))
-			return FALSE;
-	}
-
-	return CreateDirectory(lpszDirectory, NULL);
-}
-
 void CProjectNewDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CTemplateDialog::DoDataExchange(pDX);
@@ -485,7 +584,7 @@ void CProjectNewDialog::Create()
 	pProject->SetRunMakeIndex(m_bUseMakeIndex);
 
 	// create path to the project
-	if (!CreateDirectoryRecursive(pProject->GetWorkingDirectory()))
+	if (!CPathTool::CreateDirectoryRecursive(pProject->GetWorkingDirectory()))
 	{
 		//Show error msg with path and system error message
 		TCHAR systemError[200];

@@ -12,19 +12,22 @@
 class FileZip
 {
 public:
-	typedef std::vector<std::string> FileList;
+	typedef std::vector<CString> FileList;
 
 private:
 	unzFile m_uf;
 
 public:
-	FileZip(std::string zip);
+	FileZip(CString zip);
 	~FileZip();
 
 	FileList GetFiles();
-	int ExtractFile(std::string file_in_zip, std::string output_folder);
-	int ExtractAll(std::string output_folder);
+	int ExtractFile(CString file_in_zip, CString output, bool bOutputIsFolder = true);
+	CString ExtractFile2String(CString file_in_zip);
+	int ExtractAll(CString output_folder);
+	CString GetGlobalComment();
+	CString GetFileComment(CString file_in_zip);
 
 private:
-	int do_extract_currentfile(std::string output_folder);
+	int do_extract_currentfile(CString output, bool bOutputIsFolder = true);
 };

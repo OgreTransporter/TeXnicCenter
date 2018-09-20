@@ -385,6 +385,14 @@ public:
 	*/
 	static BOOL IsRelativePath( LPCTSTR lpszPath );
 
+	/**
+	@brief Creates the full path to the specified directory.
+
+	@param lpszPath
+		Path to create.
+	*/
+	static BOOL CreateDirectoryRecursive(LPCTSTR lpszPath);
+
 // basics
 public:
 	/**

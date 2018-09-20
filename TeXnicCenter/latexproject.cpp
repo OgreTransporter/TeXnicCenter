@@ -104,6 +104,7 @@ BOOL CLaTeXProject::OnNewProject()
 
 	dlg.AddTemplateFilter(_T("*.tex"),RUNTIME_CLASS(CFileBasedProjectTemplateItem));
 	dlg.AddTemplateFilter(_T("*.dll"),RUNTIME_CLASS(CWizardBasedProjectTemplateItem));
+	dlg.AddTemplateFilter(_T("*.zip"), RUNTIME_CLASS(CMultiFileBasedProjectTemplateItem));
 
 	for (int i = 0; i < CConfiguration::GetInstance()->m_astrProjectTemplatePaths.GetSize(); i++)
 		dlg.AddSearchDir(CConfiguration::GetInstance()->m_astrProjectTemplatePaths[i]);
