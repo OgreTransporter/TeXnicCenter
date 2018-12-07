@@ -310,7 +310,7 @@ bool CTeXnicCenterApp::CanUseRecentFiles()
 	return !bNoRecentDocs;
 }
 
-BOOL CALLBACK TxcEnumResourceLanguages(HANDLE /*hModule*/, LPCTSTR lpszType, LPCTSTR /*lpszName*/, WORD wIdLang, LONG lParam)
+BOOL CALLBACK TxcEnumResourceLanguages(HANDLE /*hModule*/, LPCTSTR lpszType, LPCTSTR /*lpszName*/, WORD wIdLang, LONG_PTR lParam)
 {
 	ASSERT(lpszType == RT_VERSION);
 	UNUSED_ALWAYS(lpszType);
@@ -401,7 +401,7 @@ BOOL CTeXnicCenterApp::InitInstance()
 	if (m_hTxcResources)
 	{
 		WORD wIdLang = MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL);
-		EnumResourceLanguages(m_hTxcResources, RT_VERSION, MAKEINTRESOURCE(1), (ENUMRESLANGPROC)TxcEnumResourceLanguages, (LONG) & wIdLang);
+		EnumResourceLanguages(m_hTxcResources, RT_VERSION, MAKEINTRESOURCE(1), (ENUMRESLANGPROC)TxcEnumResourceLanguages, (LONG_PTR)&wIdLang);
 
 		// check compatibility
 		CFileVersionInfo fviResources(m_hTxcResources, MAKELONG(wIdLang, 0x04b0/*UNICODE*/));

@@ -22,6 +22,7 @@
     <ProjectName>TxcResDeutsch</ProjectName>
     <ProjectGuid>{E8E006D1-6599-43C2-AD30-75E5B5B9F68F}</ProjectGuid>
     <RootNamespace>TxcDeutsch</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
