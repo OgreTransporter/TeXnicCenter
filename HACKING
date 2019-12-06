@@ -1,19 +1,6 @@
 Coding guide lines for working on TeXnicCenter
 ==============================================
 
-General
--------
-
-Before implementing a feature or fixing a bug, please visit sf.net and subscribe
-yourself to that bug or feature request. Otherwise, another developer may work
-on it in the same time.
-
-* Make sure that you are 'svn up' before starting your work.
-* Make sure that you are 'svn up' before committing your work.
-* Make sure that you have compiled without errors and warnings before committing
-your work.
-
-
 Unicode
 -------
 
@@ -141,37 +128,11 @@ It is also not desired to write it into a single line:
 if (foo) bar() //Not desired. Use only with care. Insert empty line after statement.
 
 
-Branches
---------
-
-You may implement new features on branches if you feel that you might disturb
-other developers or are not yet sure about the outcome of your undertaking.
-
-You can create new branches, but it is preferred that you discuss the issue with
-the maintainer. Be sure to understand Chapter 4 of the SVN book
-(http://svnbook.red-bean.com/en/1.4/svn.branchmerge.html). You create a branch
-under the 'branches' subdirectory in the repository using:
-
-  svn copy https://texniccenter.svn.sourceforge.net/svnroot/texniccenter/trunk \
-           https://texniccenter.svn.sourceforge.net/svnroot/texniccenter/branches/MYBRANCHNAME \
-           -m "New branch for my development towards a new feature"
-
-You change your working copy to that branch using
-
-  svn switch https://texniccenter.svn.sourceforge.net/svnroot/texniccenter/branches/MYBRANCHNAME
-
-There is no need to have both versions (trunk and branch) checked out. Type 'svn
-info' to see where you are.
-
-This also works very nice with TortoiseSVN. Just make sure that you DO NOT
-create a branch under 'trunk'.
-
-
 Modifications
 -------------
 
 TeXnicCenter uses the Scintilla source code editing component by Neil Hodgson
-and Scintilla MFC wrapper classes by PJ Naughter.
+and Scintilla MFC wrapper classes by PJ Naughter (http://naughter.com/scintilla.html).
 
 Scintilla
 ^^^^^^^^^
@@ -223,9 +184,3 @@ and also revisions 913 and 916 of
   TeXnicCenter/ScintillaCtrl.cpp
   TeXnicCenter/ScintillaCtrl.h
 
-
-Updating third-party libraries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Every library update has to be committed into the vendor branch which is then
-merged with the default or the stable branch.
